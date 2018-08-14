@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="一目星辰">
 <meta property="og:description" content="一、前言在收集资料时，查询和学习了许多介绍OAuth的资料，这些文章有好有坏，但大多是从个例出发。因此我从官方文档出发，结合在stackoverflow上的一些讨论，一并整理一下  OAuth 1.0: One Leg -&amp;gt;Two Leg -&amp;gt; Three LeggedOAuth 2.0: Two Leg -&amp;gt;Three Legged (附：Refresh Token的方式)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-14T06:26:03.920Z">
+<meta property="og:updated_time" content="2018-08-14T06:34:50.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="谈谈OAuth1,OAuth2异同">
 <meta name="twitter:description" content="一、前言在收集资料时，查询和学习了许多介绍OAuth的资料，这些文章有好有坏，但大多是从个例出发。因此我从官方文档出发，结合在stackoverflow上的一些讨论，一并整理一下  OAuth 1.0: One Leg -&amp;gt;Two Leg -&amp;gt; Three LeggedOAuth 2.0: Two Leg -&amp;gt;Three Legged (附：Refresh Token的方式)">
@@ -48,7 +48,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/assets/img/userIcon.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Hilton zhu</a></h1>
@@ -60,7 +60,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/#tags/随笔/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -106,7 +106,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/assets/img/userIcon.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Hilton zhu</h1>
@@ -140,7 +140,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/#tags/随笔/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -374,7 +374,7 @@
 </li>
 </ol>
 <h2 id="四、stackoverflow上的一些问答"><a href="#四、stackoverflow上的一些问答" class="headerlink" title="四、stackoverflow上的一些问答"></a><strong>四、stackoverflow上的一些问答</strong></h2><p><strong>Q</strong>：OpenID和OAuth的区别是什么？<br><strong>A</strong>：OpenID是有关身份验证（即证明你是谁），OAuth有关授权（即授予访问权限），推荐博文：<a href="http://cakebaker.42dh.com/2008/04/01/openid-versus-oauth-from-the-users-perspective/" target="_blank" rel="noopener">从用户的角度来看OpenID和OAuth</a>                    </p>
-<p><strong>Q</strong>：OAuth2与OAuth1不同的地方是？有人可以简单的解释的OAuth2和OAuth1之间的区别吗？ OAuth1现在已经过时，应实施的OAuth2？我没有看到许多实现的OAuth2，大多数仍在使用OAuth，这让我怀疑的OAuth2的准备使用<br><strong>A</strong>：OAuth2能更好地支持不是基于浏览器的应用。对于不是基于浏览器的应用程序，这是对OAuth的主要挑战。例如，在OAuth1.0，桌面应用或手机应用必须引导用户打开浏览器所需的服务，与服务进行身份验证，并复制令牌从服务返回给应用程序。这里的主要批评是针对用户体验。使用OAuth2.0，可以用新的方式为用户的应用程序获得授权。<br>OAuth2.0不再需要客户端应用程序拥有密钥。这让人回想起老的Twitter认证的API，它并不需要应用得到HMAC哈希令牌和请求字符串。使用OAuth2.0，应用程序可以通过HTTPS获得令牌。<br>OAuth2.0的签名流程简单得多。没有更多的特殊解析，排序，或编码。<br>OAuth2.0的访问令牌是“短命”的。通常情况下，OAuth1.0的访问令牌可以存储一年或一年以上（Twitter从来没有让他们到期）。 OAuth的2.0有刷新令牌的概念。我的猜测是，您的访问令牌可以是短暂存储的（即基于会话），而你可以刷新令牌。你使用刷新令牌获取新的访问令牌，而不是让用户重新授权您的应用程序。<br>最后，OAuth2.0使得负责处理的OAuth请求的服务器和处理用户的授权服务器之间的角色有一个干净的分离。更多信息，在上述的文章中详述。</p>
+<p><strong>Q</strong>：OAuth2与OAuth1不同的地方是？有人可以简单的解释的OAuth2和OAuth1之间的区别吗？ OAuth1现在已经过时，应实施的OAuth2？我没有看到许多实现的OAuth2，大多数仍在使用OAuth，这让我怀疑的OAuth2的准备使用<br><strong>A</strong>：OAuth2能更好地支持不是基于浏览器的应用。对于不是基于浏览器的应用程序，这是对OAuth的主要挑战。在OAuth1.0，桌面应用或手机应用必须引导用户打开浏览器所需的服务，与服务进行身份验证，并复制令牌从服务返回给应用程序。这里的主要批评是针对用户体验。使用OAuth2.0，可以用新的方式为用户的应用程序获得授权。<br>OAuth2.0不再需要客户端应用程序拥有密钥。这让人回想起老的Twitter认证的API，它并不需要应用得到HMAC哈希令牌和请求字符串。使用OAuth2.0，应用程序可以通过HTTPS获得令牌。<br>OAuth2.0的签名流程简单得多。没有更多的特殊解析，排序，或编码。<br>OAuth2.0的访问令牌是“短命”的。通常情况下，OAuth1.0的访问令牌可以存储一年或一年以上（Twitter从来没有让他们到期）。 OAuth的2.0有刷新令牌的概念。我的猜测是，您的访问令牌可以是短暂存储的（即基于会话），而你可以刷新令牌。你使用刷新令牌获取新的访问令牌，而不是让用户重新授权您的应用程序。<br>最后，OAuth2.0使得负责处理的OAuth请求的服务器和处理用户的授权服务器之间的角色有一个干净的分离。更多信息，在上述的文章中详述。</p>
 <p><strong>Q</strong>：OAuth2服务器群怎么使用state来防范CSRF？<br><strong>A</strong>：state只是一个随机的字符串，可以做这样的事情：$state = md5(uniqid(rand(), TRUE));在session中记录satate，以便稍后你能做验证。一些额外的资料：<a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-threatmodel-00" target="_blank" rel="noopener">OAuth2威胁文件模型</a>，<a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-26#section-10.12" target="_blank" rel="noopener">特别CSRF保护</a>                                    </p>
 
       
@@ -516,7 +516,38 @@
 
 
   
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2-brief-oauth" data-title="谈谈OAuth1,OAuth2异同" data-url="http://yoursite.com/08/14/2-brief-oauth/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/08/14/2-brief-oauth/", 
+    sourceId: "2-brief-oauth",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
   
@@ -677,27 +708,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="https://hiltonzhu.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+              <a href="https://hiltonzhu.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
+              <a href="https://hiltonzhu.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+              <a href="https://hiltonzhu.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
+              <a href="https://hiltonzhu.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="https://hiltonzhu.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
             </li>
           
         </ul>
