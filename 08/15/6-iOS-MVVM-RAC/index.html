@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://hiltonzhu.github.io">
-  <title>iOS开发设计/架构篇--MVC/MVP/VIPER/MVVM及延伸 | 一目星辰</title>
+  <title>iOS开发设计/架构篇--MVVM+RAC漫谈 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 iOS 中使用 MVC 架构感觉很奇怪？迁移到 MVP/MVVM 架构又怀有疑虑？VIPER 是否值得切换？ 为什么要关注架构设计？设计模式和架构方案该如何取舍 ？ 选择不同架构时，如何选择辅助方案完善不同设计模式的短板？">
+  <meta name="description" content="前言 上一篇已经梳理过 iOS 开发中常用的设计和架构，以及利弊 可是在项目中如何强化数据源？使得Controller可以更加专注的处理核心功能 如何实现数据和界面的双向绑定？如何为臃肿的controller瘦身？ 怎样实现模块任务均摊？提高可测试性、易用性？">
 <meta name="keywords" content="前端,iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发设计&#x2F;架构篇--MVC&#x2F;MVP&#x2F;VIPER&#x2F;MVVM及延伸">
-<meta property="og:url" content="https://hiltonzhu.github.io/08/15/5-iOS-FrameWork/index.html">
+<meta property="og:title" content="iOS开发设计&#x2F;架构篇--MVVM+RAC漫谈">
+<meta property="og:url" content="https://hiltonzhu.github.io/08/15/6-iOS-MVVM-RAC/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="前言 iOS 中使用 MVC 架构感觉很奇怪？迁移到 MVP/MVVM 架构又怀有疑虑？VIPER 是否值得切换？ 为什么要关注架构设计？设计模式和架构方案该如何取舍 ？ 选择不同架构时，如何选择辅助方案完善不同设计模式的短板？">
+<meta property="og:description" content="前言 上一篇已经梳理过 iOS 开发中常用的设计和架构，以及利弊 可是在项目中如何强化数据源？使得Controller可以更加专注的处理核心功能 如何实现数据和界面的双向绑定？如何为臃肿的controller瘦身？ 怎样实现模块任务均摊？提高可测试性、易用性？">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://hiltonzhu.github.io/assets/blogImg/ios-frameImg.png">
-<meta property="og:updated_time" content="2018-08-15T07:23:44.569Z">
+<meta property="og:image" content="https://hiltonzhu.github.io/assets/blogImg/ios-mvvm-rac.jpg">
+<meta property="og:updated_time" content="2018-08-15T08:05:18.218Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发设计&#x2F;架构篇--MVC&#x2F;MVP&#x2F;VIPER&#x2F;MVVM及延伸">
-<meta name="twitter:description" content="前言 iOS 中使用 MVC 架构感觉很奇怪？迁移到 MVP/MVVM 架构又怀有疑虑？VIPER 是否值得切换？ 为什么要关注架构设计？设计模式和架构方案该如何取舍 ？ 选择不同架构时，如何选择辅助方案完善不同设计模式的短板？">
-<meta name="twitter:image" content="https://hiltonzhu.github.io/assets/blogImg/ios-frameImg.png">
+<meta name="twitter:title" content="iOS开发设计&#x2F;架构篇--MVVM+RAC漫谈">
+<meta name="twitter:description" content="前言 上一篇已经梳理过 iOS 开发中常用的设计和架构，以及利弊 可是在项目中如何强化数据源？使得Controller可以更加专注的处理核心功能 如何实现数据和界面的双向绑定？如何为臃肿的controller瘦身？ 怎样实现模块任务均摊？提高可测试性、易用性？">
+<meta name="twitter:image" content="https://hiltonzhu.github.io/assets/blogImg/ios-mvvm-rac.jpg">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
   
@@ -157,31 +157,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-5-iOS-FrameWork" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-6-iOS-MVVM-RAC" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      iOS开发设计/架构篇--MVC/MVP/VIPER/MVVM及延伸
+      iOS开发设计/架构篇--MVVM+RAC漫谈
     </h1>
   
 
         
-        <a href="/08/15/5-iOS-FrameWork/" class="archive-article-date">
-  	<time datetime="2018-08-15T01:47:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
+        <a href="/08/15/6-iOS-MVVM-RAC/" class="archive-article-date">
+  	<time datetime="2018-08-15T07:39:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/blogImg/ios-frameImg.png" alt="">   </p>
+        <p><img src="/assets/blogImg/ios-mvvm-rac.jpg" alt="">   </p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>iOS 中使用 MVC 架构感觉很奇怪？迁移到 MVP/MVVM 架构又怀有疑虑？VIPER 是否值得切换？</li>
-<li>为什么要关注架构设计？设计模式和架构方案该如何取舍 ？</li>
-<li>选择不同架构时，如何选择辅助方案完善不同设计模式的短板？</li>
+<li>上一篇已经梳理过 iOS 开发中常用的设计和架构，以及利弊</li>
+<li>可是在项目中如何强化数据源？使得Controller可以更加专注的处理核心功能</li>
+<li>如何实现数据和界面的双向绑定？如何为臃肿的controller瘦身？</li>
+<li>怎样实现模块任务均摊？提高可测试性、易用性？</li>
 </ul>
 <a id="more"></a>
 
@@ -278,7 +279,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://hiltonzhu.github.io/08/15/5-iOS-FrameWork/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hiltonzhu.github.io/08/15/6-iOS-MVVM-RAC/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -292,18 +293,9 @@
   
 <nav id="article-nav">
   
-    <a href="/08/15/6-iOS-MVVM-RAC/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          iOS开发设计/架构篇--MVVM+RAC漫谈
-        
-      </div>
-    </a>
   
-  
-    <a href="/08/14/3-prevent-spiders/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">反击爬虫，前端工程师的脑洞可以有多大？</div>
+    <a href="/08/15/5-iOS-FrameWork/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS开发设计/架构篇--MVC/MVP/VIPER/MVVM及延伸</div>
       <i class="icon-circle-right"></i>
     </a>
   
