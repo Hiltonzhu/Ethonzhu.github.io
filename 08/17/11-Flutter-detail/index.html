@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://hiltonzhu.github.io">
-  <title>React Hot Loader 详解 | 一目星辰</title>
+  <title>Flutter--详解 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 人生苦短，React 太繁?  如何使用 React 快速构建用户界面？编写原生应用？ React Hot Loader 内部实现原理又是怎样的？">
-<meta name="keywords" content="前端,js,Geek,web">
+  <meta name="description" content="前言 Flutter 3月份由Google推出, 为开发者提供另一种跨平台方案 本文将详细为您解答如下问题: Flutter 可以实现哪端？ 出世没多久是否值得尝试？ 与 ReactNative / Weex 区别是怎样？ 又如何取舍？ 整个开发环境搭建、配置又是如何? Flutter 为什么会选择 dart 语言？ 开发一个完整的app流程又是怎样？  …">
+<meta name="keywords" content="前端,代码,Geek,Flutter,混合开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React Hot Loader 详解">
-<meta property="og:url" content="https://hiltonzhu.github.io/08/16/8-React-Hot-Loader/index.html">
+<meta property="og:title" content="Flutter--详解">
+<meta property="og:url" content="https://hiltonzhu.github.io/08/17/11-Flutter-detail/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="前言 人生苦短，React 太繁?  如何使用 React 快速构建用户界面？编写原生应用？ React Hot Loader 内部实现原理又是怎样的？">
+<meta property="og:description" content="前言 Flutter 3月份由Google推出, 为开发者提供另一种跨平台方案 本文将详细为您解答如下问题: Flutter 可以实现哪端？ 出世没多久是否值得尝试？ 与 ReactNative / Weex 区别是怎样？ 又如何取舍？ 整个开发环境搭建、配置又是如何? Flutter 为什么会选择 dart 语言？ 开发一个完整的app流程又是怎样？  …">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://hiltonzhu.github.io/assets/blogImg/Web-react-hot-loder.png">
-<meta property="og:updated_time" content="2018-08-16T07:13:45.635Z">
+<meta property="og:image" content="https://hiltonzhu.github.io/assets/blogImg/Flutter-Detail.png">
+<meta property="og:updated_time" content="2018-08-17T03:09:32.233Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React Hot Loader 详解">
-<meta name="twitter:description" content="前言 人生苦短，React 太繁?  如何使用 React 快速构建用户界面？编写原生应用？ React Hot Loader 内部实现原理又是怎样的？">
-<meta name="twitter:image" content="https://hiltonzhu.github.io/assets/blogImg/Web-react-hot-loder.png">
+<meta name="twitter:title" content="Flutter--详解">
+<meta name="twitter:description" content="前言 Flutter 3月份由Google推出, 为开发者提供另一种跨平台方案 本文将详细为您解答如下问题: Flutter 可以实现哪端？ 出世没多久是否值得尝试？ 与 ReactNative / Weex 区别是怎样？ 又如何取舍？ 整个开发环境搭建、配置又是如何? Flutter 为什么会选择 dart 语言？ 开发一个完整的app流程又是怎样？  …">
+<meta name="twitter:image" content="https://hiltonzhu.github.io/assets/blogImg/Flutter-Detail.png">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
   
@@ -157,34 +157,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-8-React-Hot-Loader" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-11-Flutter-detail" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      React Hot Loader 详解
+      Flutter--详解
     </h1>
   
 
         
-        <a href="/08/16/8-React-Hot-Loader/" class="archive-article-date">
-  	<time datetime="2018-08-16T02:55:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-16</time>
+        <a href="/08/17/11-Flutter-detail/" class="archive-article-date">
+  	<time datetime="2018-08-17T02:02:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/blogImg/Web-react-hot-loder.png" alt=""></p>
+        <p><img src="/assets/blogImg/Flutter-Detail.png" alt=""></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>人生苦短，React 太繁? </li>
-<li>如何使用 React 快速构建用户界面？编写原生应用？</li>
-<li>React Hot Loader 内部实现原理又是怎样的？</li>
+<li>Flutter 3月份由Google推出, 为开发者提供另一种跨平台方案</li>
+<li>本文将详细为您解答如下问题:<ul>
+<li>Flutter 可以实现哪端？ 出世没多久是否值得尝试？</li>
+<li>与 ReactNative / Weex 区别是怎样？ 又如何取舍？</li>
+<li>整个开发环境搭建、配置又是如何? Flutter 为什么会选择 dart 语言？</li>
+<li>开发一个完整的app流程又是怎样？ </li>
+<li>…</li>
+</ul>
+</li>
 </ul>
 <a id="more"></a>
-
       
 
       
@@ -222,7 +227,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">代码</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -230,7 +235,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Flutter</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">混合开发</a>
         		</li>
       		
 		</ul>
@@ -286,7 +295,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://hiltonzhu.github.io/08/16/8-React-Hot-Loader/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hiltonzhu.github.io/08/17/11-Flutter-detail/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -300,18 +309,9 @@
   
 <nav id="article-nav">
   
-    <a href="/08/16/9-iOS-Live-stream/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          iOS开发--流媒体 漫谈、深入
-        
-      </div>
-    </a>
   
-  
-    <a href="/08/15/7-iOS-MVVM-RAC-Detail/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS开发 -- Rac 详解</div>
+    <a href="/08/16/10-GPUImage-Detail/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS开发--GPUImage Filters 详解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -330,6 +330,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
