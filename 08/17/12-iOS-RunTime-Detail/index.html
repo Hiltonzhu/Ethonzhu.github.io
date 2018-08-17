@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://hiltonzhu.github.io">
   <title>iOS RunTime 详解+无埋点 SDK 实现 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime error 怎样调试和处理 ？ 带领您利用 RunTime 设计和实现一套自己的无埋点SDK …">
-<meta name="keywords" content="前端,代码,iOS">
+  <meta name="description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime error 怎样调试和处理 ？ 使用 RunTime 设计和实现一套自己的无埋点SDK …">
+<meta name="keywords" content="iOS,前端,代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS RunTime 详解+无埋点 SDK 实现">
 <meta property="og:url" content="https://hiltonzhu.github.io/08/17/12-iOS-RunTime-Detail/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime error 怎样调试和处理 ？ 带领您利用 RunTime 设计和实现一套自己的无埋点SDK …">
+<meta property="og:description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime error 怎样调试和处理 ？ 使用 RunTime 设计和实现一套自己的无埋点SDK …">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://hiltonzhu.github.io/assets/blogImg/iOS-RunTime-Detail.png">
-<meta property="og:updated_time" content="2018-08-17T09:27:58.214Z">
+<meta property="og:updated_time" content="2018-08-17T09:46:26.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS RunTime 详解+无埋点 SDK 实现">
-<meta name="twitter:description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime error 怎样调试和处理 ？ 带领您利用 RunTime 设计和实现一套自己的无埋点SDK …">
+<meta name="twitter:description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime error 怎样调试和处理 ？ 使用 RunTime 设计和实现一套自己的无埋点SDK …">
 <meta name="twitter:image" content="https://hiltonzhu.github.io/assets/blogImg/iOS-RunTime-Detail.png">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
@@ -183,7 +183,7 @@
 <li>RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？</li>
 <li>和传统编码有何异同、利弊 ？ </li>
 <li>RunTime error 怎样调试和处理 ？</li>
-<li>带领您利用 RunTime 设计和实现一套自己的无埋点SDK</li>
+<li>使用 RunTime 设计和实现一套自己的无埋点SDK</li>
 <li>…</li>
 </ul>
 </li>
@@ -222,15 +222,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">代码</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
         		</li>
       		
 		</ul>
@@ -441,11 +441,55 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">开源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">用户体验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">混合开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Geek</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,19 +501,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">开发者</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">程序猿</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">代码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,23 +517,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Programmer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Coder</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Geek</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,30 +534,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">用户体验</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">混合开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
