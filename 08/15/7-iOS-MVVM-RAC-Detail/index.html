@@ -9,7 +9,7 @@
   <title>iOS开发 -- Rac 详解 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言 上一篇熟悉过 iOS 开发中 MVVM + Rac 设计详情 其中的冷 / 热信号有什么区别 ？ 不同特征序列含义和使用场景又是怎样的 ？ Rac 中如何来实现函数式响应式编程？RACSignal 所有变换底层是怎么实现的 ？">
-<meta name="keywords" content="iOS,前端,Geek,代码">
+<meta name="keywords" content="前端,iOS,代码,Geek">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发 -- Rac 详解">
 <meta property="og:url" content="https://hiltonzhu.github.io/08/15/7-iOS-MVVM-RAC-Detail/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="前言 上一篇熟悉过 iOS 开发中 MVVM + Rac 设计详情 其中的冷 / 热信号有什么区别 ？ 不同特征序列含义和使用场景又是怎样的 ？ Rac 中如何来实现函数式响应式编程？RACSignal 所有变换底层是怎么实现的 ？">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://hiltonzhu.github.io/assets/blogImg/ios-rac-detail.png">
-<meta property="og:updated_time" content="2018-08-16T10:58:27.437Z">
+<meta property="og:updated_time" content="2018-08-16T10:58:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 -- Rac 详解">
 <meta name="twitter:description" content="前言 上一篇熟悉过 iOS 开发中 MVVM + Rac 设计详情 其中的冷 / 热信号有什么区别 ？ 不同特征序列含义和使用场景又是怎样的 ？ Rac 中如何来实现函数式响应式编程？RACSignal 所有变换底层是怎么实现的 ？">
@@ -220,19 +220,19 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Geek</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">代码</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Geek</a>
         		</li>
       		
 		</ul>
@@ -452,11 +452,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">代码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,23 +488,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,6 +497,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,6 +537,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
