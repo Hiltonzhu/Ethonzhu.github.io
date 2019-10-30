@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ethonzhu.github.io">
-  <title>相册 | 一目星辰</title>
+  <title>iOS开发 -- Rac 详解 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Ins 	摄影   	图片来自instagram，正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChi">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,Flutter,开发者,程序猿,极客,编程,代码,开源,混合开发,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="https://ethonzhu.github.io/photos/index.html">
+  <meta name="description" content="前言 上一篇熟悉过 iOS 开发中 MVVM + Rac 设计详情 其中的冷 / 热信号有什么区别 ？ 不同特征序列含义和使用场景又是怎样的 ？ Rac 中如何来实现函数式响应式编程？RACSignal 所有变换底层是怎么实现的 ？">
+<meta name="keywords" content="前端,Geek,代码,iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 -- Rac 详解">
+<meta property="og:url" content="https://ethonzhu.github.io/08/15/6-iOS-MVVM-RAC-Detail/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="Ins 	摄影   	图片来自instagram，正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChi">
+<meta property="og:description" content="前言 上一篇熟悉过 iOS 开发中 MVVM + Rac 设计详情 其中的冷 / 热信号有什么区别 ？ 不同特征序列含义和使用场景又是怎样的 ？ Rac 中如何来实现函数式响应式编程？RACSignal 所有变换底层是怎么实现的 ？">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2017-07-28T03:51:08.000Z">
+<meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/ios-rac-detail.png">
+<meta property="og:updated_time" content="2019-10-18T02:21:07.248Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="Ins 	摄影   	图片来自instagram，正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChi">
+<meta name="twitter:title" content="iOS开发 -- Rac 详解">
+<meta name="twitter:description" content="前言 上一篇熟悉过 iOS 开发中 MVVM + Rac 设计详情 其中的冷 / 热信号有什么区别 ？ 不同特征序列含义和使用场景又是怎样的 ？ Rac 中如何来实现函数式响应式编程？RACSignal 所有变换底层是怎么实现的 ？">
+<meta name="twitter:image" content="https://ethonzhu.github.io/assets/blogImg/ios-rac-detail.png">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
   
@@ -155,42 +157,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-photos" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-6-iOS-MVVM-RAC-Detail" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      iOS开发 -- Rac 详解
     </h1>
   
 
+        
+        <a href="/08/15/6-iOS-MVVM-RAC-Detail/" class="archive-article-date">
+  	<time datetime="2018-08-15T12:06:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
+</a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" href="./ins.css">
-<div class="photos-btn-wrap">
-	<a class="photos-btn active" href="javascript:void(0)" target="_blank" rel="noopener">Ins</a>
-	<a class="photos-btn" target="_blank" href="http://litten.me/gallery/">摄影</a>
-</div>
-<div class="instagram itemscope">
-	<a href="https://www.instagram.com/litten225/" target="_blank" class="open-ins">图片来自instagram，正在加载中…</a>
-</div>
-<script>
-  (function() {
-    var loadScript = function(path) {
-      var $script = document.createElement('script')
-      document.getElementsByTagName('body')[0].appendChild($script)
-      $script.setAttribute('src', path)
-    }
-    setTimeout(function() {
-      loadScript('./ins.js')
-    }, 0)
-  })()
-</script>
+        <!--![](/assets/blogImg/ios-mvvm-rac-detail.png)-->
+<p><img src="/assets/blogImg/ios-rac-detail.png" alt=""></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>上一篇熟悉过 iOS 开发中 MVVM + Rac 设计详情</li>
+<li>其中的冷 / 热信号有什么区别 ？</li>
+<li>不同特征序列含义和使用场景又是怎样的 ？</li>
+<li>Rac 中如何来实现函数式响应式编程？RACSignal 所有变换底层是怎么实现的 ？</li>
+</ul>
+<a id="more"></a>
 
       
 
@@ -220,6 +215,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Geek</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">代码</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -270,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/photos/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/08/15/6-iOS-MVVM-RAC-Detail/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -282,6 +300,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/08/16/7-React-Hot-Loader/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          React Hot Loader 详解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/08/15/5-iOS-MVVM-RAC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS开发设计/架构篇--MVVM+RAC漫谈</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -296,10 +333,33 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -322,7 +382,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
