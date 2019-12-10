@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ethonzhu.github.io">
-  <title>iOS开发 -- Rac 详解 | 一目星辰</title>
+  <title>网易“聚合阅读”布局的实现 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 上一篇熟悉过 iOS 开发中 MVVM + Rac 设计详情 其中的冷 / 热信号有什么区别 ？ 不同特征序列含义和使用场景又是怎样的 ？ Rac 中如何来实现函数式响应式编程？RACSignal 所有变换底层是怎么实现的 ？">
-<meta name="keywords" content="前端,Geek,代码,iOS">
+  <meta name="description" content="网易聚合阅读的出现的确让人惊艳了一下。流畅的交互,使碎片化的新闻资讯像报纸一样摊在眼前,这是信息大爆炸的时代产物。不管你能不能接受这种新阅读形式，事实上，每天越来越多的新闻层出不穷，还没被人看到就已成为了“旧闻”。回归报纸的版面设计，堆叠新闻模块，让用户告别一条接一条整齐的新闻链接，而是在一个版面上提供更多的信息，不失为一种尝试。 而抛去产品的层面，从前端方向来看，“聚合阅读”也有许多值得学">
+<meta name="keywords" content="web,前端,js,Geek,代码,html5">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发 -- Rac 详解">
-<meta property="og:url" content="https://ethonzhu.github.io/08/15/6-iOS Rac 详解/index.html">
+<meta property="og:title" content="网易“聚合阅读”布局的实现">
+<meta property="og:url" content="https://ethonzhu.github.io/08/16/3-my-news-reader-box/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="前言 上一篇熟悉过 iOS 开发中 MVVM + Rac 设计详情 其中的冷 / 热信号有什么区别 ？ 不同特征序列含义和使用场景又是怎样的 ？ Rac 中如何来实现函数式响应式编程？RACSignal 所有变换底层是怎么实现的 ？">
+<meta property="og:description" content="网易聚合阅读的出现的确让人惊艳了一下。流畅的交互,使碎片化的新闻资讯像报纸一样摊在眼前,这是信息大爆炸的时代产物。不管你能不能接受这种新阅读形式，事实上，每天越来越多的新闻层出不穷，还没被人看到就已成为了“旧闻”。回归报纸的版面设计，堆叠新闻模块，让用户告别一条接一条整齐的新闻链接，而是在一个版面上提供更多的信息，不失为一种尝试。 而抛去产品的层面，从前端方向来看，“聚合阅读”也有许多值得学">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/ios-rac-detail.png">
-<meta property="og:updated_time" content="2019-12-10T07:09:01.059Z">
+<meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/myReader0.jpg">
+<meta property="og:updated_time" content="2019-12-10T08:29:56.642Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发 -- Rac 详解">
-<meta name="twitter:description" content="前言 上一篇熟悉过 iOS 开发中 MVVM + Rac 设计详情 其中的冷 / 热信号有什么区别 ？ 不同特征序列含义和使用场景又是怎样的 ？ Rac 中如何来实现函数式响应式编程？RACSignal 所有变换底层是怎么实现的 ？">
-<meta name="twitter:image" content="https://ethonzhu.github.io/assets/blogImg/ios-rac-detail.png">
+<meta name="twitter:title" content="网易“聚合阅读”布局的实现">
+<meta name="twitter:description" content="网易聚合阅读的出现的确让人惊艳了一下。流畅的交互,使碎片化的新闻资讯像报纸一样摊在眼前,这是信息大爆炸的时代产物。不管你能不能接受这种新阅读形式，事实上，每天越来越多的新闻层出不穷，还没被人看到就已成为了“旧闻”。回归报纸的版面设计，堆叠新闻模块，让用户告别一条接一条整齐的新闻链接，而是在一个版面上提供更多的信息，不失为一种尝试。 而抛去产品的层面，从前端方向来看，“聚合阅读”也有许多值得学">
+<meta name="twitter:image" content="https://ethonzhu.github.io/assets/blogImg/myReader0.jpg">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
   
@@ -157,35 +157,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-6-iOS Rac 详解" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-3-my-news-reader-box" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      iOS开发 -- Rac 详解
+      网易“聚合阅读”布局的实现
     </h1>
   
 
         
-        <a href="/08/15/6-iOS Rac 详解/" class="archive-article-date">
-  	<time datetime="2018-08-15T12:06:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
+        <a href="/08/16/3-my-news-reader-box/" class="archive-article-date">
+  	<time datetime="2018-08-16T08:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!--![](/assets/blogImg/ios-mvvm-rac-detail.png)-->
-<p><img src="/assets/blogImg/ios-rac-detail.png" alt=""></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>上一篇熟悉过 iOS 开发中 MVVM + Rac 设计详情</li>
-<li>其中的冷 / 热信号有什么区别 ？</li>
-<li>不同特征序列含义和使用场景又是怎样的 ？</li>
-<li>Rac 中如何来实现函数式响应式编程？RACSignal 所有变换底层是怎么实现的 ？</li>
-</ul>
+        <p><img src="/assets/blogImg/myReader0.jpg" alt="聚合阅读">  </p>
+<p>网易<a href="http://news.tag.163.com/" target="_blank" rel="noopener">聚合阅读</a>的出现的确让人惊艳了一下。流畅的交互,使碎片化的新闻资讯像报纸一样摊在眼前,这是信息大爆炸的时代产物。不管你能不能接受这种新阅读形式，事实上，每天越来越多的新闻层出不穷，还没被人看到就已成为了“旧闻”。回归报纸的版面设计，堆叠新闻模块，让用户告别一条接一条整齐的新闻链接，而是在一个版面上提供更多的信息，不失为一种尝试。</p>
+<p>而抛去产品的层面，从前端方向来看，“聚合阅读”也有许多值得学习的地方。这几天研究了一下源码，谈谈它随机布局的实现，以及一些优化的措施。</p>
 <a id="more"></a>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a><strong>demo</strong></h2><p>点击按钮可以改变布局：</p>
+<iframe id="demoIframe" src="/assets/demo/my_news_reader/index.html" width="600" height="420" scrolling="no"></iframe>
+
+<h2 id="一-怎样定义格子对象"><a href="#一-怎样定义格子对象" class="headerlink" title="一.怎样定义格子对象"></a><strong>一.怎样定义格子对象</strong></h2><p>每个格子对象，都至少应该有这5个属性：  </p>
+<ul>
+<li>left：距离左边界的位置</li>
+<li>top：距离上边界的位置</li>
+<li>width：格子宽度</li>
+<li>height：格子高度</li>
+<li>background：格子颜色</li>
+</ul>
+<p>逐个去定义对象无疑是愚蠢的：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Block</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        left: o.left,</span><br><span class="line">        top: o.top,</span><br><span class="line">        width: o.width,</span><br><span class="line">        height: o.height,</span><br><span class="line">        bg: o.bg</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> block1 = <span class="keyword">new</span> Block(&#123;</span><br><span class="line">    left: <span class="number">0</span>,</span><br><span class="line">    top: <span class="number">0</span>,</span><br><span class="line">    width: <span class="number">50</span>,</span><br><span class="line">    height: <span class="number">50</span>,</span><br><span class="line">    bg: <span class="string">"#3f3"</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> block2 = …</span><br><span class="line">…</span><br><span class="line"><span class="keyword">var</span> block37 = …</span><br></pre></td></tr></table></figure></p>
+<p>这样不仅不利于后期维护，而且构造格子的嵌套关系也相对麻烦。</p>
+<p>网易的做法是使用“交替切割”的方式来做：  </p>
+<ol>
+<li>将大块先切成两列。  </li>
+<li>左列（红色部分）再切成三行，右列（褐，黄，蓝部分）也切成三行。</li>
+<li>对形成的6个小块，再进行列的切割</li>
+</ol>
+<p>整个做法就是“列-行-列-行-……”这样的交替切割。所以它的对象是这样设置的,其中random属性可以约定同级的cols或rows是否可以随机变换位置，width和height的值是规定一个父级块的分割比例。其设置的形式例如（例子与demo的设定无关）：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.tagConfig.pageLayout = &#123;</span><br><span class="line">    top: <span class="number">0</span>,</span><br><span class="line">    left: <span class="number">0</span>,</span><br><span class="line">    width: <span class="number">100</span>,</span><br><span class="line">    height: <span class="number">100</span>,</span><br><span class="line">    random: !<span class="number">1</span>,</span><br><span class="line">    cols: [&#123;</span><br><span class="line">        width: <span class="number">30</span>,</span><br><span class="line">        rows: [&#123;</span><br><span class="line">            height: <span class="number">40</span>,</span><br><span class="line">            cols: [&#123;</span><br><span class="line">                width: <span class="number">30</span>,</span><br><span class="line">                rows:[&#123;</span><br><span class="line">                    height:<span class="number">100</span></span><br><span class="line">                &#125;]</span><br><span class="line">            &#125;,&#123;</span><br><span class="line">                width: <span class="number">70</span>,</span><br><span class="line">                rows:[&#123;</span><br><span class="line">                    height:<span class="number">100</span></span><br><span class="line">                &#125;]</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            height: <span class="number">30</span></span><br><span class="line">        &#125;,&#123;</span><br><span class="line">            height: <span class="number">30</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        width: <span class="number">70</span>,</span><br><span class="line">        rows:[&#123;</span><br><span class="line">            height:<span class="number">100</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="二-递归调用切割函数"><a href="#二-递归调用切割函数" class="headerlink" title="二.递归调用切割函数"></a><strong>二.递归调用切割函数</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_getGrids</span>(<span class="params">tag</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/*domArr是拥有left,top,width,height,bg等属性的所有dom数组，_getGrids的最终目的就是生成这个数组*/</span></span><br><span class="line">    <span class="keyword">var</span> domArr = [],</span><br><span class="line">    _cutGrid(tag.pageLayout,</span><br><span class="line">        <span class="function"><span class="keyword">function</span>(<span class="params">tag</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (tag.rows || tag.cols) &#123;</span><br><span class="line">                <span class="comment">/*假如子级存在rows或者cols，则递归切割*/</span></span><br><span class="line">                _cutGrid(tag, <span class="built_in">arguments</span>.callee);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">/*子级不存在rows或者cols，不再进行切割，构造domArr*/</span></span><br><span class="line">                …</span><br><span class="line">                domArr.push(xxx)</span><br><span class="line">                …</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">return</span> domArr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三-切割函数"><a href="#三-切割函数" class="headerlink" title="三.切割函数"></a><strong>三.切割函数</strong></h2><p>切割函数挺有意思的，下次想再用一篇文章来详细写一下，在这里仅贴出参考的源码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">/*对象复制函数*/</span><br><span class="line">function _shadowClone(e) &#123;</span><br><span class="line">    var t = &#123;&#125;;</span><br><span class="line">    for (var n in e) e.hasOwnProperty(n) &amp;&amp; (t[n] = e[n]);</span><br><span class="line">    return t;</span><br><span class="line">&#125;</span><br><span class="line">/*判断子块随机布局与否*/</span><br><span class="line">(function() &#123;</span><br><span class="line">    function ranOrNot(e, t) &#123;</span><br><span class="line">        var n = [];</span><br><span class="line">        typeof t == &quot;undefined&quot; &amp;&amp; (t = e, e = 0);</span><br><span class="line">        for (; e &lt; t; e++) n.push(e);</span><br><span class="line">        return n</span><br><span class="line">    &#125;</span><br><span class="line">    /*随机布局*/</span><br><span class="line">    Array.prototype.randomEach = function(t) &#123;</span><br><span class="line">        console.log(3);</span><br><span class="line">        if (typeof t != &quot;function&quot;) throw new TypeError;</span><br><span class="line">        var n = this.length,</span><br><span class="line">        r = ranOrNot(n);</span><br><span class="line">        while (n) &#123;</span><br><span class="line">            var i = Math.floor(Math.random() * n--);</span><br><span class="line">            if (t(this[r[i]]) === !1) break;</span><br><span class="line">            r[i] = r[n]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    /*常规布局*/</span><br><span class="line">    Array.prototype.forEach || (Array.prototype.forEach = function(e) &#123;</span><br><span class="line">        var t = this.length;</span><br><span class="line">        if (typeof e != &quot;function&quot;) throw new TypeError;</span><br><span class="line">        var n = arguments[1];</span><br><span class="line">        for (var r = 0; r &lt; t; r++) r in this &amp;&amp; e.call(n, this[r], r, this)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125; )();</span><br><span class="line"></span><br><span class="line">/*切割函数*/</span><br><span class="line">function _cutGrid(tag, funcJudge) &#123;</span><br><span class="line">    function a(a) &#123;</span><br><span class="line">        function h(cutLength) &#123;</span><br><span class="line">            /*复制子块对象并计算出子块top,left*/</span><br><span class="line">            var u, a = _shadowClone(cutLength);</span><br><span class="line">            c++,</span><br><span class="line">            u = c === l ? tag[cutType2.measure] - s: Math.floor(cutLength[cutType2.measure] * tag[cutType2.measure] / 100),</span><br><span class="line">            a[cutType1.offset] = i + tag[cutType1.offset],</span><br><span class="line">            a[cutType2.offset] = s + tag[cutType2.offset],</span><br><span class="line">            a[cutType1.measure] = f,</span><br><span class="line">            a[cutType2.measure] = u,</span><br><span class="line">            a.colorPattern = tag.colorPattern,</span><br><span class="line">            /*判断小块是否还需要分割*/</span><br><span class="line">            funcJudge(a),</span><br><span class="line">            s += u</span><br><span class="line">        &#125;</span><br><span class="line">        var f, l = a[cutType2.name].length,</span><br><span class="line">        c = 0;</span><br><span class="line">        u++,</span><br><span class="line">        f = u === cutLength ? tag[cutType1.measure] - i: Math.floor(a[cutType1.measure] * tag[cutType1.measure] / 100),</span><br><span class="line">        a.random === !1 ? a[cutType2.name].forEach(h) : a[cutType2.name].randomEach(h),</span><br><span class="line">        s = 0,</span><br><span class="line">        i += f</span><br><span class="line">    &#125;</span><br><span class="line">    /*根据大块是否有rows属性，定义两种切割方式*/</span><br><span class="line">    var cutType1, cutType2;</span><br><span class="line">    tag.rows ? (cutType1 = &#123;</span><br><span class="line">        name: &quot;rows&quot;,</span><br><span class="line">        measure: &quot;height&quot;,</span><br><span class="line">        offset: &quot;top&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    cutType2 = &#123;</span><br><span class="line">        name: &quot;cols&quot;,</span><br><span class="line">        measure: &quot;width&quot;,</span><br><span class="line">        offset: &quot;left&quot;</span><br><span class="line">    &#125;) : (cutType1 = &#123;</span><br><span class="line">        name: &quot;cols&quot;,</span><br><span class="line">        measure: &quot;width&quot;,</span><br><span class="line">        offset: &quot;left&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    cutType2 = &#123;</span><br><span class="line">        name: &quot;rows&quot;,</span><br><span class="line">        measure: &quot;height&quot;,</span><br><span class="line">        offset: &quot;top&quot;</span><br><span class="line">    &#125;);</span><br><span class="line">    var i = 0,</span><br><span class="line">    s = 0,</span><br><span class="line">    cutLength = tag[cutType1.name].length,</span><br><span class="line">    u = 0;</span><br><span class="line">    /*是否随机布局*/</span><br><span class="line">    tag.random === !1 ? tag[cutType1.name].forEach(a) : tag[cutType1.name].randomEach(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>完成到这一步，我已不记得声明对象时出了多少次错误。各种尖括号，方括号，逗号和分号翩翩起舞时，你一定跟我一样很想念coffee的语法糖…</p>
 
       
 
@@ -220,7 +238,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -232,7 +258,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
         		</li>
       		
 		</ul>
@@ -288,7 +314,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/08/15/6-iOS Rac 详解/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/08/16/3-my-news-reader-box/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,18 +328,18 @@
   
 <nav id="article-nav">
   
-    <a href="/08/16/7-React-Hot-Loader/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/08/16/9-GPUImage 详解/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          React Hot Loader 详解
+          流媒体 / 图形处理 GPUImage Filters 谁与争锋
         
       </div>
     </a>
   
   
-    <a href="/08/15/5-iOS-MVVM+RAC漫谈/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS开发设计/架构篇--MVVM+RAC漫谈</div>
+    <a href="/08/16/10-React-Hot-Loader/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React Hot Loader 详解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -332,19 +358,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
@@ -452,19 +465,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">混合开发</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Geek</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,19 +497,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,6 +510,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">混合开发</a>
               </li>
              
               <li class="article-tag-list-item">
