@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ethonzhu.github.io">
-  <title>iOS开发--流媒体 漫谈、深入 | 一目星辰</title>
+  <title>iOS RunTime 详解 - 无埋点 SDK 实现 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 iOS 流媒体开发具体含义？直播类和点播类技术上区别很大？ 视频直播开发整个过程又是如何？ TCP / RTCP / RTSP / WebRTC / RTMP / HLS 等流媒体协议有何不同？要怎样做取舍？ 项目如何设计和架构？如何通过编/解码进行性能优化？诸如:流媒体、礼物、弹幕/聊天 等 又如何进行流媒体自定义开发？实现推流？">
-<meta name="keywords" content="前端,代码,iOS,开源">
+  <meta name="description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Error 怎样调试和处理 ？ 如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？ …">
+<meta name="keywords" content="前端,代码,iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发--流媒体 漫谈、深入">
-<meta property="og:url" content="https://ethonzhu.github.io/08/16/8-iOS-Live-stream/index.html">
+<meta property="og:title" content="iOS RunTime 详解 - 无埋点 SDK 实现">
+<meta property="og:url" content="https://ethonzhu.github.io/08/17/11-iOS-运行时/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="前言 iOS 流媒体开发具体含义？直播类和点播类技术上区别很大？ 视频直播开发整个过程又是如何？ TCP / RTCP / RTSP / WebRTC / RTMP / HLS 等流媒体协议有何不同？要怎样做取舍？ 项目如何设计和架构？如何通过编/解码进行性能优化？诸如:流媒体、礼物、弹幕/聊天 等 又如何进行流媒体自定义开发？实现推流？">
+<meta property="og:description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Error 怎样调试和处理 ？ 如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？ …">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/iOS-Live-Stream.png">
-<meta property="og:updated_time" content="2019-10-18T02:21:15.206Z">
+<meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/iOS-RunTime-Detail.png">
+<meta property="og:updated_time" content="2019-12-10T07:06:40.851Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发--流媒体 漫谈、深入">
-<meta name="twitter:description" content="前言 iOS 流媒体开发具体含义？直播类和点播类技术上区别很大？ 视频直播开发整个过程又是如何？ TCP / RTCP / RTSP / WebRTC / RTMP / HLS 等流媒体协议有何不同？要怎样做取舍？ 项目如何设计和架构？如何通过编/解码进行性能优化？诸如:流媒体、礼物、弹幕/聊天 等 又如何进行流媒体自定义开发？实现推流？">
-<meta name="twitter:image" content="https://ethonzhu.github.io/assets/blogImg/iOS-Live-Stream.png">
+<meta name="twitter:title" content="iOS RunTime 详解 - 无埋点 SDK 实现">
+<meta name="twitter:description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Error 怎样调试和处理 ？ 如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？ …">
+<meta name="twitter:image" content="https://ethonzhu.github.io/assets/blogImg/iOS-RunTime-Detail.png">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
   
@@ -157,33 +157,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-8-iOS-Live-stream" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-11-iOS-运行时" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      iOS开发--流媒体 漫谈、深入
+      iOS RunTime 详解 - 无埋点 SDK 实现
     </h1>
   
 
         
-        <a href="/08/16/8-iOS-Live-stream/" class="archive-article-date">
-  	<time datetime="2018-08-16T06:52:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-16</time>
+        <a href="/08/17/11-iOS-运行时/" class="archive-article-date">
+  	<time datetime="2018-08-17T08:43:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/blogImg/iOS-Live-Stream.png" alt=""></p>
+        <p><img src="/assets/blogImg/iOS-RunTime-Detail.png" alt=""></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>iOS 流媒体开发具体含义？直播类和点播类技术上区别很大？</li>
-<li>视频直播开发整个过程又是如何？</li>
-<li>TCP / RTCP / RTSP / WebRTC / RTMP / HLS 等流媒体协议有何不同？要怎样做取舍？</li>
-<li>项目如何设计和架构？如何通过编/解码进行性能优化？诸如:流媒体、礼物、弹幕/聊天 等</li>
-<li>又如何进行流媒体自定义开发？实现推流？</li>
+<li>本文将为您解析 iOS 开发中 RunTime :<ul>
+<li>RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？</li>
+<li>和传统编码有何异同、利弊 ？ </li>
+<li>RunTime Error 怎样调试和处理 ？</li>
+<li>如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？</li>
+<li>…</li>
+</ul>
+</li>
 </ul>
 <a id="more"></a>
 
@@ -229,10 +232,6 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">开源</a>
         		</li>
       		
 		</ul>
@@ -288,7 +287,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/08/16/8-iOS-Live-stream/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/08/17/11-iOS-运行时/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,18 +301,18 @@
   
 <nav id="article-nav">
   
-    <a href="/08/16/9-GPUImage 详解/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/10/30/14-埋点/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          流媒体 / 图形处理 GPUImage Filters 谁与争锋
+          “埋点”
         
       </div>
     </a>
   
   
-    <a href="/08/16/7-React-Hot-Loader/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">React Hot Loader 详解</div>
+    <a href="/08/17/10-Flutter/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一统江湖--跨平台新宠 Flutter 详解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -332,6 +331,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>

@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ethonzhu.github.io">
-  <title>iOS开发--流媒体 漫谈、深入 | 一目星辰</title>
+  <title>一统江湖--跨平台新宠 Flutter 详解 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 iOS 流媒体开发具体含义？直播类和点播类技术上区别很大？ 视频直播开发整个过程又是如何？ TCP / RTCP / RTSP / WebRTC / RTMP / HLS 等流媒体协议有何不同？要怎样做取舍？ 项目如何设计和架构？如何通过编/解码进行性能优化？诸如:流媒体、礼物、弹幕/聊天 等 又如何进行流媒体自定义开发？实现推流？">
-<meta name="keywords" content="前端,代码,iOS,开源">
+  <meta name="description" content="前言 Flutter 2月底由 Google 推出, 为开发者提供另一种跨平台方案 本文将详细为您解答如下问题 : Flutter 可以实现哪端？ 出世没多久是否值得尝试？ 与 ReactNative / Weex 区别是怎样？ 又如何取舍？ 整个开发环境搭建、配置又是如何？ Flutter 为什么会选择 dart 语言？ 开发一个完整的app流程又是怎样？  …">
+<meta name="keywords" content="前端,Flutter,混合开发,Geek,代码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发--流媒体 漫谈、深入">
-<meta property="og:url" content="https://ethonzhu.github.io/08/16/8-iOS-Live-stream/index.html">
+<meta property="og:title" content="一统江湖--跨平台新宠 Flutter 详解">
+<meta property="og:url" content="https://ethonzhu.github.io/08/17/10-Flutter/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="前言 iOS 流媒体开发具体含义？直播类和点播类技术上区别很大？ 视频直播开发整个过程又是如何？ TCP / RTCP / RTSP / WebRTC / RTMP / HLS 等流媒体协议有何不同？要怎样做取舍？ 项目如何设计和架构？如何通过编/解码进行性能优化？诸如:流媒体、礼物、弹幕/聊天 等 又如何进行流媒体自定义开发？实现推流？">
+<meta property="og:description" content="前言 Flutter 2月底由 Google 推出, 为开发者提供另一种跨平台方案 本文将详细为您解答如下问题 : Flutter 可以实现哪端？ 出世没多久是否值得尝试？ 与 ReactNative / Weex 区别是怎样？ 又如何取舍？ 整个开发环境搭建、配置又是如何？ Flutter 为什么会选择 dart 语言？ 开发一个完整的app流程又是怎样？  …">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/iOS-Live-Stream.png">
-<meta property="og:updated_time" content="2019-10-18T02:21:15.206Z">
+<meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/Flutter-Detail.png">
+<meta property="og:updated_time" content="2019-12-10T07:07:01.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发--流媒体 漫谈、深入">
-<meta name="twitter:description" content="前言 iOS 流媒体开发具体含义？直播类和点播类技术上区别很大？ 视频直播开发整个过程又是如何？ TCP / RTCP / RTSP / WebRTC / RTMP / HLS 等流媒体协议有何不同？要怎样做取舍？ 项目如何设计和架构？如何通过编/解码进行性能优化？诸如:流媒体、礼物、弹幕/聊天 等 又如何进行流媒体自定义开发？实现推流？">
-<meta name="twitter:image" content="https://ethonzhu.github.io/assets/blogImg/iOS-Live-Stream.png">
+<meta name="twitter:title" content="一统江湖--跨平台新宠 Flutter 详解">
+<meta name="twitter:description" content="前言 Flutter 2月底由 Google 推出, 为开发者提供另一种跨平台方案 本文将详细为您解答如下问题 : Flutter 可以实现哪端？ 出世没多久是否值得尝试？ 与 ReactNative / Weex 区别是怎样？ 又如何取舍？ 整个开发环境搭建、配置又是如何？ Flutter 为什么会选择 dart 语言？ 开发一个完整的app流程又是怎样？  …">
+<meta name="twitter:image" content="https://ethonzhu.github.io/assets/blogImg/Flutter-Detail.png">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
   
@@ -157,35 +157,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-8-iOS-Live-stream" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-10-Flutter" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      iOS开发--流媒体 漫谈、深入
+      一统江湖--跨平台新宠 Flutter 详解
     </h1>
   
 
         
-        <a href="/08/16/8-iOS-Live-stream/" class="archive-article-date">
-  	<time datetime="2018-08-16T06:52:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-16</time>
+        <a href="/08/17/10-Flutter/" class="archive-article-date">
+  	<time datetime="2018-08-17T02:02:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/blogImg/iOS-Live-Stream.png" alt=""></p>
+        <p><img src="/assets/blogImg/Flutter-Detail.png" alt=""></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>iOS 流媒体开发具体含义？直播类和点播类技术上区别很大？</li>
-<li>视频直播开发整个过程又是如何？</li>
-<li>TCP / RTCP / RTSP / WebRTC / RTMP / HLS 等流媒体协议有何不同？要怎样做取舍？</li>
-<li>项目如何设计和架构？如何通过编/解码进行性能优化？诸如:流媒体、礼物、弹幕/聊天 等</li>
-<li>又如何进行流媒体自定义开发？实现推流？</li>
+<li>Flutter 2月底由 Google 推出, 为开发者提供另一种跨平台方案</li>
+<li>本文将详细为您解答如下问题 :<ul>
+<li>Flutter 可以实现哪端？ 出世没多久是否值得尝试？</li>
+<li>与 ReactNative / Weex 区别是怎样？ 又如何取舍？</li>
+<li>整个开发环境搭建、配置又是如何？ Flutter 为什么会选择 dart 语言？</li>
+<li>开发一个完整的app流程又是怎样？ </li>
+<li>…</li>
+</ul>
+</li>
 </ul>
 <a id="more"></a>
+<!--
+### 1. Flutter 简介
+
+- 2018年2月27日，在2018世界移动大会上，Google 发布了Flutter的第一个Beta版本。用以帮助开发者在 iOS / Android 平台开发高质量原生应用的全新移动框架: [查看视频详情介绍](https://v.youku.com/v_show/id_XMzQyNTE1NDMxMg==.html)
+- 下文会详细说明 Flutter / ReactNative / Weex 之间的区别, 相信看完你会知晓 Flutter 是否值得尝试
+
+### 2. Flutter / ReactNative / Weex 漫谈
+[Flutter](https://flutter.io/)
+[ReactNative](https://facebook.github.io/react-native/)
+[Weex](http://weex.apache.org/)
+-->
 
       
 
@@ -224,15 +239,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Flutter</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">混合开发</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Geek</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">代码</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">开源</a>
         		</li>
       		
 		</ul>
@@ -288,7 +307,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/08/16/8-iOS-Live-stream/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/08/17/10-Flutter/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,18 +321,18 @@
   
 <nav id="article-nav">
   
-    <a href="/08/16/9-GPUImage 详解/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/08/17/11-iOS-运行时/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          流媒体 / 图形处理 GPUImage Filters 谁与争锋
+          iOS RunTime 详解 - 无埋点 SDK 实现
         
       </div>
     </a>
   
   
-    <a href="/08/16/7-React-Hot-Loader/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">React Hot Loader 详解</div>
+    <a href="/08/16/9-GPUImage 详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">流媒体 / 图形处理 GPUImage Filters 谁与争锋</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -332,6 +351,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>

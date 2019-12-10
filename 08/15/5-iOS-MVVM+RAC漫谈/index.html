@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ethonzhu.github.io">
-  <title>iOS开发--流媒体 漫谈、深入 | 一目星辰</title>
+  <title>iOS开发设计/架构篇--MVVM+RAC漫谈 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 iOS 流媒体开发具体含义？直播类和点播类技术上区别很大？ 视频直播开发整个过程又是如何？ TCP / RTCP / RTSP / WebRTC / RTMP / HLS 等流媒体协议有何不同？要怎样做取舍？ 项目如何设计和架构？如何通过编/解码进行性能优化？诸如:流媒体、礼物、弹幕/聊天 等 又如何进行流媒体自定义开发？实现推流？">
-<meta name="keywords" content="前端,代码,iOS,开源">
+  <meta name="description" content="前言 上一篇已经梳理过 iOS 开发中常用的设计和架构，以及利弊 可是在项目中如何强化数据源？使得Controller可以更加专注的处理核心功能 如何实现数据和界面的双向绑定？如何为臃肿的controller瘦身？ 怎样实现模块任务均摊？提高可测试性、易用性？">
+<meta name="keywords" content="前端,Geek,代码,iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发--流媒体 漫谈、深入">
-<meta property="og:url" content="https://ethonzhu.github.io/08/16/8-iOS-Live-stream/index.html">
+<meta property="og:title" content="iOS开发设计&#x2F;架构篇--MVVM+RAC漫谈">
+<meta property="og:url" content="https://ethonzhu.github.io/08/15/5-iOS-MVVM+RAC漫谈/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="前言 iOS 流媒体开发具体含义？直播类和点播类技术上区别很大？ 视频直播开发整个过程又是如何？ TCP / RTCP / RTSP / WebRTC / RTMP / HLS 等流媒体协议有何不同？要怎样做取舍？ 项目如何设计和架构？如何通过编/解码进行性能优化？诸如:流媒体、礼物、弹幕/聊天 等 又如何进行流媒体自定义开发？实现推流？">
+<meta property="og:description" content="前言 上一篇已经梳理过 iOS 开发中常用的设计和架构，以及利弊 可是在项目中如何强化数据源？使得Controller可以更加专注的处理核心功能 如何实现数据和界面的双向绑定？如何为臃肿的controller瘦身？ 怎样实现模块任务均摊？提高可测试性、易用性？">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/iOS-Live-Stream.png">
-<meta property="og:updated_time" content="2019-10-18T02:21:15.206Z">
+<meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/ios-mvvm-rac.png">
+<meta property="og:updated_time" content="2019-12-10T07:08:52.267Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发--流媒体 漫谈、深入">
-<meta name="twitter:description" content="前言 iOS 流媒体开发具体含义？直播类和点播类技术上区别很大？ 视频直播开发整个过程又是如何？ TCP / RTCP / RTSP / WebRTC / RTMP / HLS 等流媒体协议有何不同？要怎样做取舍？ 项目如何设计和架构？如何通过编/解码进行性能优化？诸如:流媒体、礼物、弹幕/聊天 等 又如何进行流媒体自定义开发？实现推流？">
-<meta name="twitter:image" content="https://ethonzhu.github.io/assets/blogImg/iOS-Live-Stream.png">
+<meta name="twitter:title" content="iOS开发设计&#x2F;架构篇--MVVM+RAC漫谈">
+<meta name="twitter:description" content="前言 上一篇已经梳理过 iOS 开发中常用的设计和架构，以及利弊 可是在项目中如何强化数据源？使得Controller可以更加专注的处理核心功能 如何实现数据和界面的双向绑定？如何为臃肿的controller瘦身？ 怎样实现模块任务均摊？提高可测试性、易用性？">
+<meta name="twitter:image" content="https://ethonzhu.github.io/assets/blogImg/ios-mvvm-rac.png">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
   
@@ -157,33 +157,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-8-iOS-Live-stream" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-5-iOS-MVVM+RAC漫谈" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      iOS开发--流媒体 漫谈、深入
+      iOS开发设计/架构篇--MVVM+RAC漫谈
     </h1>
   
 
         
-        <a href="/08/16/8-iOS-Live-stream/" class="archive-article-date">
-  	<time datetime="2018-08-16T06:52:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-16</time>
+        <a href="/08/15/5-iOS-MVVM+RAC漫谈/" class="archive-article-date">
+  	<time datetime="2018-08-15T07:39:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/blogImg/iOS-Live-Stream.png" alt=""></p>
+        <p><img src="/assets/blogImg/ios-mvvm-rac.png" alt="">  </p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>iOS 流媒体开发具体含义？直播类和点播类技术上区别很大？</li>
-<li>视频直播开发整个过程又是如何？</li>
-<li>TCP / RTCP / RTSP / WebRTC / RTMP / HLS 等流媒体协议有何不同？要怎样做取舍？</li>
-<li>项目如何设计和架构？如何通过编/解码进行性能优化？诸如:流媒体、礼物、弹幕/聊天 等</li>
-<li>又如何进行流媒体自定义开发？实现推流？</li>
+<li>上一篇已经梳理过 iOS 开发中常用的设计和架构，以及利弊</li>
+<li>可是在项目中如何强化数据源？使得Controller可以更加专注的处理核心功能</li>
+<li>如何实现数据和界面的双向绑定？如何为臃肿的controller瘦身？</li>
+<li>怎样实现模块任务均摊？提高可测试性、易用性？</li>
 </ul>
 <a id="more"></a>
 
@@ -224,15 +223,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Geek</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">代码</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">开源</a>
         		</li>
       		
 		</ul>
@@ -288,7 +287,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/08/16/8-iOS-Live-stream/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/08/15/5-iOS-MVVM+RAC漫谈/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,18 +301,18 @@
   
 <nav id="article-nav">
   
-    <a href="/08/16/9-GPUImage 详解/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/08/15/6-iOS Rac 详解/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          流媒体 / 图形处理 GPUImage Filters 谁与争锋
+          iOS开发 -- Rac 详解
         
       </div>
     </a>
   
   
-    <a href="/08/16/7-React-Hot-Loader/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">React Hot Loader 详解</div>
+    <a href="/08/15/4-iOS-FrameWork/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS开发设计/架构篇--MVC/MVP/VIPER/MVVM及延伸</div>
       <i class="icon-circle-right"></i>
     </a>
   
