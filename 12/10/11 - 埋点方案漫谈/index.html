@@ -8,19 +8,21 @@
   <link rel="dns-prefetch" href="https://ethonzhu.github.io">
   <title>“埋点方案漫谈” | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 本文将为您解析开发埋点实现方案与关键技术 : 现行市场上实现埋点方案是分类 ？ 不同方案实现数据收集能力有何不同 ？ 针对不同方案各自的利弊又是如何 ？ 不同方案具体是如何实现和设计 ？">
+  <meta name="description" content="前言 本文将为您解析开发埋点实现方案与关键技术 : 埋点的定义和具体作用？ 现行市场上实现埋点方案分类 ？ 不同方案实现数据收集能力有何不同 ？ 针对不同方案各自的利弊又是如何 ？ 不同方案具体是如何实现和设计 ？">
 <meta name="keywords" content="前端,代码,编程,设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="“埋点方案漫谈”">
 <meta property="og:url" content="https://ethonzhu.github.io/12/10/11 - 埋点方案漫谈/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="前言 本文将为您解析开发埋点实现方案与关键技术 : 现行市场上实现埋点方案是分类 ？ 不同方案实现数据收集能力有何不同 ？ 针对不同方案各自的利弊又是如何 ？ 不同方案具体是如何实现和设计 ？">
+<meta property="og:description" content="前言 本文将为您解析开发埋点实现方案与关键技术 : 埋点的定义和具体作用？ 现行市场上实现埋点方案分类 ？ 不同方案实现数据收集能力有何不同 ？ 针对不同方案各自的利弊又是如何 ？ 不同方案具体是如何实现和设计 ？">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/desc_title.png">
-<meta property="og:updated_time" content="2019-12-12T07:32:43.021Z">
+<meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/track_sort.png">
+<meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/collect_p.png">
+<meta property="og:updated_time" content="2019-12-12T08:49:34.057Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="“埋点方案漫谈”">
-<meta name="twitter:description" content="前言 本文将为您解析开发埋点实现方案与关键技术 : 现行市场上实现埋点方案是分类 ？ 不同方案实现数据收集能力有何不同 ？ 针对不同方案各自的利弊又是如何 ？ 不同方案具体是如何实现和设计 ？">
+<meta name="twitter:description" content="前言 本文将为您解析开发埋点实现方案与关键技术 : 埋点的定义和具体作用？ 现行市场上实现埋点方案分类 ？ 不同方案实现数据收集能力有何不同 ？ 针对不同方案各自的利弊又是如何 ？ 不同方案具体是如何实现和设计 ？">
 <meta name="twitter:image" content="https://ethonzhu.github.io/assets/blogImg/desc_title.png">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
@@ -180,7 +182,8 @@
         <p><img src="/assets/blogImg/desc_title.png" alt=""></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
 <li>本文将为您解析开发埋点实现方案与关键技术 :<ul>
-<li>现行市场上实现埋点方案是分类 ？</li>
+<li>埋点的定义和具体作用？</li>
+<li>现行市场上实现埋点方案分类 ？</li>
 <li>不同方案实现数据收集能力有何不同 ？</li>
 <li>针对不同方案各自的利弊又是如何 ？</li>
 <li>不同方案具体是如何实现和设计 ？</li>
@@ -188,8 +191,13 @@
 </li>
 </ul>
 <a id="more"></a>
-<h2 id="一"><a href="#一" class="headerlink" title="一"></a>一</h2><p>埋点方案分类</p>
-
+<h2 id="埋点的定义和作用"><a href="#埋点的定义和作用" class="headerlink" title="埋点的定义和作用"></a>埋点的定义和作用</h2><ul>
+<li>埋点: 数据采集的一种方式 </li>
+<li>作用: 记录和收集终端用户的操作行为</li>
+</ul>
+<h2 id="埋点方案分类"><a href="#埋点方案分类" class="headerlink" title="埋点方案分类"></a>埋点方案分类</h2><p><img src="/assets/blogImg/track_sort.png" alt=""></p>
+<h2 id="现行方案收集能力"><a href="#现行方案收集能力" class="headerlink" title="现行方案收集能力"></a>现行方案收集能力</h2><p><img src="/assets/blogImg/collect_p.png" alt=""></p>
+<h2 id="不同方式的各自利弊"><a href="#不同方式的各自利弊" class="headerlink" title="不同方式的各自利弊"></a>不同方式的各自利弊</h2>
       
 
       
@@ -343,7 +351,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一"><span class="toc-number">2.</span> <span class="toc-text">一</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#埋点的定义和作用"><span class="toc-number">2.</span> <span class="toc-text">埋点的定义和作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#埋点方案分类"><span class="toc-number">3.</span> <span class="toc-text">埋点方案分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#现行方案收集能力"><span class="toc-number">4.</span> <span class="toc-text">现行方案收集能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不同方式的各自利弊"><span class="toc-number">5.</span> <span class="toc-text">不同方式的各自利弊</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -471,7 +479,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,15 +487,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">设计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -495,15 +495,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开源</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">用户体验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">设计</a>
               </li>
              
               <li class="article-tag-list-item">
