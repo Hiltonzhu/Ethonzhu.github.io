@@ -12,14 +12,14 @@
 <meta name="keywords" content="前端,代码,编程,设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="“埋点方案漫谈”">
-<meta property="og:url" content="https://ethonzhu.github.io/12/10/11 - 埋点方案漫谈/index.html">
+<meta property="og:url" content="https://ethonzhu.github.io/12/19/11 - 埋点方案漫谈/index.html">
 <meta property="og:site_name" content="一目星辰">
 <meta property="og:description" content="前言 本文将为您解析开发埋点实现方案与关键技术 : 埋点的定义和具体作用？ 现行市场上实现埋点方案分类 ？ 不同方案实现数据收集能力有何不同 ？ 针对不同方案各自的利弊又是如何 ？ 不同方案具体是如何实现和设计 ？">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/track_title.jpeg">
 <meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/track_sort.png">
 <meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/collect_p.png">
-<meta property="og:updated_time" content="2019-12-12T09:18:12.231Z">
+<meta property="og:updated_time" content="2019-12-19T06:21:09.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="“埋点方案漫谈”">
 <meta name="twitter:description" content="前言 本文将为您解析开发埋点实现方案与关键技术 : 埋点的定义和具体作用？ 现行市场上实现埋点方案分类 ？ 不同方案实现数据收集能力有何不同 ？ 针对不同方案各自的利弊又是如何 ？ 不同方案具体是如何实现和设计 ？">
@@ -171,8 +171,8 @@
   
 
         
-        <a href="/12/10/11 - 埋点方案漫谈/" class="archive-article-date">
-  	<time datetime="2019-12-10T06:43:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
+        <a href="/12/19/11 - 埋点方案漫谈/" class="archive-article-date">
+  	<time datetime="2019-12-19T01:43:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
 </a>
         
       </header>
@@ -299,7 +299,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/12/10/11 - 埋点方案漫谈/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/12/19/11 - 埋点方案漫谈/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,18 +313,18 @@
   
 <nav id="article-nav">
   
-    <a href="/12/10/13 - Android 无埋点 SDK/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/12/19/12 - iOS 无埋点 SDK 实现方案/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          iOS RunTime 详解 - 无埋点 SDK 实现
         
       </div>
     </a>
   
   
-    <a href="/09/10/10-React-Hot-Loader/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">React Hot Loader 详解</div>
+    <a href="/12/10/13 - Android 无埋点 SDK/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -463,7 +463,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Geek</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,22 +491,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Geek</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
@@ -503,11 +499,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+                <a href="javascript:void(0)" class="js-tag color3">开源</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开源</a>
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,6 +516,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">用户体验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
