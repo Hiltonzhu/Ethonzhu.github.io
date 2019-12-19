@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ethonzhu.github.io">
-  <title>一目星辰</title>
+  <title>Android 无埋点 SDK 实现 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="layout: posttitle: “Android 无埋点 SDK 实现”date: 2019-12-19 10:12:13comments: truetoc: truetags:  - 前端 - iOS - 代码  前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Erro">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,Flutter,开发者,程序猿,极客,编程,代码,设计,开源,混合开发,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
+  <meta name="description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Error 怎样调试和处理 ？ 如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？ …">
+<meta name="keywords" content="前端,代码,Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一目星辰">
-<meta property="og:url" content="https://ethonzhu.github.io/12/10/13 - Android 无埋点 SDK 实现/index.html">
+<meta property="og:title" content="Android 无埋点 SDK 实现">
+<meta property="og:url" content="https://ethonzhu.github.io/12/19/13 - Android 无埋点 SDK 实现/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="layout: posttitle: “Android 无埋点 SDK 实现”date: 2019-12-19 10:12:13comments: truetoc: truetags:  - 前端 - iOS - 代码  前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Erro">
+<meta property="og:description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Error 怎样调试和处理 ？ 如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？ …">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/iOS-RunTime-Detail.png">
-<meta property="og:updated_time" content="2019-12-19T06:35:06.820Z">
+<meta property="og:updated_time" content="2019-12-19T06:36:44.014Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一目星辰">
-<meta name="twitter:description" content="layout: posttitle: “Android 无埋点 SDK 实现”date: 2019-12-19 10:12:13comments: truetoc: truetags:  - 前端 - iOS - 代码  前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Erro">
+<meta name="twitter:title" content="Android 无埋点 SDK 实现">
+<meta name="twitter:description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Error 怎样调试和处理 ？ 如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？ …">
 <meta name="twitter:image" content="https://ethonzhu.github.io/assets/blogImg/iOS-RunTime-Detail.png">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
@@ -160,14 +160,24 @@
             <article id="post-13 - Android 无埋点 SDK 实现" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android 无埋点 SDK 实现
+    </h1>
+  
+
+        
+        <a href="/12/19/13 - Android 无埋点 SDK 实现/" class="archive-article-date">
+  	<time datetime="2019-12-19T02:12:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>layout: post<br>title: “Android 无埋点 SDK 实现”<br>date: 2019-12-19 10:12:13<br>comments: true<br>toc: true<br>tags: </p>
-<pre><code>- 前端
-- iOS
-- 代码
-</code></pre><p><img src="/assets/blogImg/iOS-RunTime-Detail.png" alt=""></p>
+        <p><img src="/assets/blogImg/iOS-RunTime-Detail.png" alt=""></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
 <li>本文将为您解析 iOS 开发中 RunTime :<ul>
 <li>RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？</li>
@@ -208,6 +218,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">代码</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -258,7 +287,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/12/10/13 - Android 无埋点 SDK 实现/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/12/19/13 - Android 无埋点 SDK 实现/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -272,18 +301,18 @@
   
 <nav id="article-nav">
   
-    <a href="/12/19/11 - 埋点方案漫谈/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/12/19/14 - 可视化埋点 SDK 实现/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          “埋点方案漫谈”
+          可视化埋点 SDK 实现
         
       </div>
     </a>
   
   
-    <a href="/09/10/10-React-Hot-Loader/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">React Hot Loader 详解</div>
+    <a href="/12/19/12 - iOS 无埋点 SDK 实现方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS RunTime 详解 - 无埋点 SDK 实现</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -302,6 +331,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -438,6 +480,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
