@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="https://ethonzhu.github.io">
   <title>“埋点方案漫谈” | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 本文将为您解析开发埋点实现方案与关键技术 : 埋点的定义和具体作用？ 现行市场上实现埋点方案分类 ？ 不同方案实现数据收集能力有何不同 ？ 针对不同方案各自的利弊又是如何 ？ 不同方案具体是如何实现和设计 ？">
-<meta name="keywords" content="前端,代码,编程,设计">
+  <meta name="description" content="前言 本文将为您解析以下开发中埋点相关知识 : 埋点的定义、作用以及收集能力 现行市场上实现埋点方案分类  不同方案各自的利弊  不同方案具体设计、实现以及关键技术">
+<meta name="keywords" content="前端,Geek,代码,编程,设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="“埋点方案漫谈”">
 <meta property="og:url" content="https://ethonzhu.github.io/12/24/11 - 埋点方案漫谈/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="前言 本文将为您解析开发埋点实现方案与关键技术 : 埋点的定义和具体作用？ 现行市场上实现埋点方案分类 ？ 不同方案实现数据收集能力有何不同 ？ 针对不同方案各自的利弊又是如何 ？ 不同方案具体是如何实现和设计 ？">
+<meta property="og:description" content="前言 本文将为您解析以下开发中埋点相关知识 : 埋点的定义、作用以及收集能力 现行市场上实现埋点方案分类  不同方案各自的利弊  不同方案具体设计、实现以及关键技术">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/iOS%20runTime/track_title.jpeg">
 <meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/iOS%20runTime/track_sort.png">
 <meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/iOS%20runTime/collect_p.png">
-<meta property="og:updated_time" content="2019-12-24T01:53:45.218Z">
+<meta property="og:updated_time" content="2019-12-24T03:09:42.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="“埋点方案漫谈”">
-<meta name="twitter:description" content="前言 本文将为您解析开发埋点实现方案与关键技术 : 埋点的定义和具体作用？ 现行市场上实现埋点方案分类 ？ 不同方案实现数据收集能力有何不同 ？ 针对不同方案各自的利弊又是如何 ？ 不同方案具体是如何实现和设计 ？">
+<meta name="twitter:description" content="前言 本文将为您解析以下开发中埋点相关知识 : 埋点的定义、作用以及收集能力 现行市场上实现埋点方案分类  不同方案各自的利弊  不同方案具体设计、实现以及关键技术">
 <meta name="twitter:image" content="https://ethonzhu.github.io/assets/eventTracks/iOS%20runTime/track_title.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
@@ -181,19 +181,23 @@
       
         <p><img src="/assets/eventTracks/iOS%20runTime/track_title.jpeg" alt=""></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>本文将为您解析开发埋点实现方案与关键技术 :<ul>
-<li>埋点的定义和具体作用？</li>
-<li>现行市场上实现埋点方案分类 ？</li>
-<li>不同方案实现数据收集能力有何不同 ？</li>
-<li>针对不同方案各自的利弊又是如何 ？</li>
-<li>不同方案具体是如何实现和设计 ？</li>
+<li>本文将为您解析以下开发中埋点相关知识 :<ul>
+<li>埋点的定义、作用以及收集能力</li>
+<li>现行市场上实现埋点方案分类 </li>
+<li>不同方案各自的利弊 </li>
+<li>不同方案具体设计、实现以及关键技术 </li>
 </ul>
 </li>
 </ul>
 <a id="more"></a>
-<h2 id="一、埋点的定义和作用"><a href="#一、埋点的定义和作用" class="headerlink" title="一、埋点的定义和作用"></a>一、埋点的定义和作用</h2><ul>
-<li>埋点: 数据采集的一种方式 </li>
+<h2 id="一、埋点的定义、作用以及收集能力"><a href="#一、埋点的定义、作用以及收集能力" class="headerlink" title="一、埋点的定义、作用以及收集能力"></a>一、埋点的定义、作用以及收集能力</h2><ul>
+<li>定义: 数据采集的一种方式 </li>
 <li>作用: 记录和收集终端用户的操作行为</li>
+<li>收集能力<ul>
+<li>事件: 冷启动、页面事件、用户行为、ScrollView 相关</li>
+<li>业务层: 基于事件、覆盖事件函数相关参数</li>
+</ul>
+</li>
 </ul>
 <h2 id="二、埋点方案分类"><a href="#二、埋点方案分类" class="headerlink" title="二、埋点方案分类"></a>二、埋点方案分类</h2><p><img src="/assets/eventTracks/iOS%20runTime/track_sort.png" alt=""></p>
 <h2 id="三、-现行方案收集能力"><a href="#三、-现行方案收集能力" class="headerlink" title="三、 现行方案收集能力"></a>三、 现行方案收集能力</h2><p><img src="/assets/eventTracks/iOS%20runTime/collect_p.png" alt=""></p>
@@ -232,6 +236,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Geek</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -351,7 +359,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、埋点的定义和作用"><span class="toc-number">2.</span> <span class="toc-text">一、埋点的定义和作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、埋点方案分类"><span class="toc-number">3.</span> <span class="toc-text">二、埋点方案分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、-现行方案收集能力"><span class="toc-number">4.</span> <span class="toc-text">三、 现行方案收集能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、不同方式的各自利弊"><span class="toc-number">5.</span> <span class="toc-text">四、不同方式的各自利弊</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、埋点的定义、作用以及收集能力"><span class="toc-number">2.</span> <span class="toc-text">一、埋点的定义、作用以及收集能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、埋点方案分类"><span class="toc-number">3.</span> <span class="toc-text">二、埋点方案分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、-现行方案收集能力"><span class="toc-number">4.</span> <span class="toc-text">三、 现行方案收集能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、不同方式的各自利弊"><span class="toc-number">5.</span> <span class="toc-text">四、不同方式的各自利弊</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -491,19 +499,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,6 +520,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">混合开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
