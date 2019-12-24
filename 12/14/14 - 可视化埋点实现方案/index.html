@@ -6,24 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ethonzhu.github.io">
-  <title>“埋点方案漫谈” | 一目星辰</title>
+  <title>可视化埋点实现方案 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 本文将为您解析开发埋点实现方案与关键技术 : 埋点的定义和具体作用？ 现行市场上实现埋点方案分类 ？ 不同方案实现数据收集能力有何不同 ？ 针对不同方案各自的利弊又是如何 ？ 不同方案具体是如何实现和设计 ？">
-<meta name="keywords" content="前端,代码,编程,设计">
+  <meta name="description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Error 怎样调试和处理 ？ 如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？ …">
+<meta name="keywords" content="前端,代码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“埋点方案漫谈”">
-<meta property="og:url" content="https://ethonzhu.github.io/12/19/11 - 埋点方案漫谈/index.html">
+<meta property="og:title" content="可视化埋点实现方案">
+<meta property="og:url" content="https://ethonzhu.github.io/12/14/14 - 可视化埋点实现方案/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="前言 本文将为您解析开发埋点实现方案与关键技术 : 埋点的定义和具体作用？ 现行市场上实现埋点方案分类 ？ 不同方案实现数据收集能力有何不同 ？ 针对不同方案各自的利弊又是如何 ？ 不同方案具体是如何实现和设计 ？">
+<meta property="og:description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Error 怎样调试和处理 ？ 如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？ …">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/track_title.jpeg">
-<meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/track_sort.png">
-<meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/collect_p.png">
-<meta property="og:updated_time" content="2019-12-19T06:29:02.577Z">
+<meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/iOS-RunTime-Detail.png">
+<meta property="og:updated_time" content="2019-12-24T01:38:37.229Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="“埋点方案漫谈”">
-<meta name="twitter:description" content="前言 本文将为您解析开发埋点实现方案与关键技术 : 埋点的定义和具体作用？ 现行市场上实现埋点方案分类 ？ 不同方案实现数据收集能力有何不同 ？ 针对不同方案各自的利弊又是如何 ？ 不同方案具体是如何实现和设计 ？">
-<meta name="twitter:image" content="https://ethonzhu.github.io/assets/eventTracks/track_title.jpeg">
+<meta name="twitter:title" content="可视化埋点实现方案">
+<meta name="twitter:description" content="前言 本文将为您解析 iOS 开发中 RunTime : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Error 怎样调试和处理 ？ 如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？ …">
+<meta name="twitter:image" content="https://ethonzhu.github.io/assets/blogImg/iOS-RunTime-Detail.png">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
   
@@ -159,45 +157,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-11 - 埋点方案漫谈" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-14 - 可视化埋点实现方案" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      “埋点方案漫谈”
+      可视化埋点实现方案
     </h1>
   
 
         
-        <a href="/12/19/11 - 埋点方案漫谈/" class="archive-article-date">
-  	<time datetime="2019-12-19T01:43:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-19</time>
+        <a href="/12/14/14 - 可视化埋点实现方案/" class="archive-article-date">
+  	<time datetime="2019-12-14T03:01:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/eventTracks/track_title.jpeg" alt=""></p>
+        <p><img src="/assets/blogImg/iOS-RunTime-Detail.png" alt=""></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>本文将为您解析开发埋点实现方案与关键技术 :<ul>
-<li>埋点的定义和具体作用？</li>
-<li>现行市场上实现埋点方案分类 ？</li>
-<li>不同方案实现数据收集能力有何不同 ？</li>
-<li>针对不同方案各自的利弊又是如何 ？</li>
-<li>不同方案具体是如何实现和设计 ？</li>
+<li>本文将为您解析 iOS 开发中 RunTime :<ul>
+<li>RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？</li>
+<li>和传统编码有何异同、利弊 ？ </li>
+<li>RunTime Error 怎样调试和处理 ？</li>
+<li>如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？</li>
+<li>…</li>
 </ul>
 </li>
 </ul>
 <a id="more"></a>
-<h2 id="埋点的定义和作用"><a href="#埋点的定义和作用" class="headerlink" title="埋点的定义和作用"></a>埋点的定义和作用</h2><ul>
-<li>埋点: 数据采集的一种方式 </li>
-<li>作用: 记录和收集终端用户的操作行为</li>
-</ul>
-<h2 id="埋点方案分类"><a href="#埋点方案分类" class="headerlink" title="埋点方案分类"></a>埋点方案分类</h2><p><img src="/assets/eventTracks/track_sort.png" alt=""></p>
-<h2 id="现行方案收集能力"><a href="#现行方案收集能力" class="headerlink" title="现行方案收集能力"></a>现行方案收集能力</h2><p><img src="/assets/eventTracks/collect_p.png" alt=""></p>
-<h2 id="不同方式的各自利弊"><a href="#不同方式的各自利弊" class="headerlink" title="不同方式的各自利弊"></a>不同方式的各自利弊</h2>
+
       
 
       
@@ -236,14 +228,6 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">代码</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">设计</a>
         		</li>
       		
 		</ul>
@@ -299,7 +283,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/12/19/11 - 埋点方案漫谈/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/12/14/14 - 可视化埋点实现方案/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,18 +297,18 @@
   
 <nav id="article-nav">
   
-    <a href="/12/19/12 - iOS RunTime - 无埋点 SDK 实现/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/12/24/11 - 埋点方案漫谈/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          iOS RunTime - 无埋点 SDK 实现
+          “埋点方案漫谈”
         
       </div>
     </a>
   
   
-    <a href="/09/10/10-React-Hot-Loader/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">React Hot Loader 详解</div>
+    <a href="/12/14/13 - Android 字节码打桩 - 无埋点 SDK 实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android 字节码打桩 - 无埋点 SDK 实现</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -351,7 +335,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#埋点的定义和作用"><span class="toc-number">2.</span> <span class="toc-text">埋点的定义和作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#埋点方案分类"><span class="toc-number">3.</span> <span class="toc-text">埋点方案分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#现行方案收集能力"><span class="toc-number">4.</span> <span class="toc-text">现行方案收集能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不同方式的各自利弊"><span class="toc-number">5.</span> <span class="toc-text">不同方式的各自利弊</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol>
                     </div>
                 </span>
             </div>
