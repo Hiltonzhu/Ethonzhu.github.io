@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://ethonzhu.github.io">
   <title>WeSocket - 可视化埋点 实现 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 本文将为您解析可视化埋点相关知识 : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Error 怎样调试和处理 ？ 如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？ …">
+  <meta name="description" content="前言 本文将为您解析可视化埋点相关知识 : 可视化埋点定义和作用 可视化埋点实现方案 WeScoket 可视化埋点方案 …">
 <meta name="keywords" content="前端,代码,设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WeSocket - 可视化埋点 实现">
 <meta property="og:url" content="https://ethonzhu.github.io/12/25/15 - WeSocket - 可视化埋点 实现/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="前言 本文将为您解析可视化埋点相关知识 : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Error 怎样调试和处理 ？ 如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？ …">
+<meta property="og:description" content="前言 本文将为您解析可视化埋点相关知识 : 可视化埋点定义和作用 可视化埋点实现方案 WeScoket 可视化埋点方案 …">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/WeScoket/WeScoket_header.jpg">
-<meta property="og:updated_time" content="2019-12-25T07:13:30.359Z">
+<meta property="og:updated_time" content="2019-12-25T07:27:00.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WeSocket - 可视化埋点 实现">
-<meta name="twitter:description" content="前言 本文将为您解析可视化埋点相关知识 : RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？ 和传统编码有何异同、利弊 ？  RunTime Error 怎样调试和处理 ？ 如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？ …">
+<meta name="twitter:description" content="前言 本文将为您解析可视化埋点相关知识 : 可视化埋点定义和作用 可视化埋点实现方案 WeScoket 可视化埋点方案 …">
 <meta name="twitter:image" content="https://ethonzhu.github.io/assets/eventTracks/WeScoket/WeScoket_header.jpg">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
@@ -180,10 +180,9 @@
         <p><img src="/assets/eventTracks/WeScoket/WeScoket_header.jpg" alt=""></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
 <li>本文将为您解析可视化埋点相关知识 :<ul>
-<li>RunTime 究竟是何方神圣？ 在开发中使用场景有哪些 ？</li>
-<li>和传统编码有何异同、利弊 ？ </li>
-<li>RunTime Error 怎样调试和处理 ？</li>
-<li>如何使用 RunTime 设计和实现一套自己的无埋点 SDK ？</li>
+<li>可视化埋点定义和作用</li>
+<li>可视化埋点实现方案</li>
+<li>WeScoket 可视化埋点方案</li>
 <li>…</li>
 </ul>
 </li>
@@ -470,6 +469,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
@@ -478,15 +481,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">用户体验</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,7 +497,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+                <a href="javascript:void(0)" class="js-tag color5">用户体验</a>
               </li>
              
               <li class="article-tag-list-item">
