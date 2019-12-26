@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ethonzhu.github.io">
-  <title>iOS RunTime - 无埋点 SDK 实现 | 一目星辰</title>
+  <title>Android 字节码打桩 - 无埋点 SDK 实现 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 本文将为您解析以下 iOS 开发无埋点 SDK 相关知识: iOS RunTime 定义以及在开发中使用场景 和传统编码有何异同、利弊  RunTime Error 调试和处理 使用 RunTime 设计和实现一套自己的无埋点 SDK …">
-<meta name="keywords" content="前端,代码,iOS">
+  <meta name="description" content="前言 本文将为您解析以下 Android 开发中无埋点相关知识: Android 无埋点实现方案分类 不同无埋点方案之间的利弊  无埋点的设计和实现关键技术 利用字节码插装 + AOP 实现 Android 无埋点 SDK …">
+<meta name="keywords" content="前端,代码,设计,Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS RunTime - 无埋点 SDK 实现">
-<meta property="og:url" content="https://ethonzhu.github.io/12/25/13 - iOS RunTime - 无埋点 SDK 实现/index.html">
+<meta property="og:title" content="Android 字节码打桩 - 无埋点 SDK 实现">
+<meta property="og:url" content="https://ethonzhu.github.io/12/26/14 - Android 字节码打桩 - 无埋点 SDK 实现/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="前言 本文将为您解析以下 iOS 开发无埋点 SDK 相关知识: iOS RunTime 定义以及在开发中使用场景 和传统编码有何异同、利弊  RunTime Error 调试和处理 使用 RunTime 设计和实现一套自己的无埋点 SDK …">
+<meta property="og:description" content="前言 本文将为您解析以下 Android 开发中无埋点相关知识: Android 无埋点实现方案分类 不同无埋点方案之间的利弊  无埋点的设计和实现关键技术 利用字节码插装 + AOP 实现 Android 无埋点 SDK …">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://ethonzhu.github.io/assets/blogImg/iOS-RunTime-Detail.png">
-<meta property="og:updated_time" content="2019-12-26T07:43:16.038Z">
+<meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/Android%20SDK/AndroidSDK_header.png">
+<meta property="og:updated_time" content="2019-12-26T07:45:26.590Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS RunTime - 无埋点 SDK 实现">
-<meta name="twitter:description" content="前言 本文将为您解析以下 iOS 开发无埋点 SDK 相关知识: iOS RunTime 定义以及在开发中使用场景 和传统编码有何异同、利弊  RunTime Error 调试和处理 使用 RunTime 设计和实现一套自己的无埋点 SDK …">
-<meta name="twitter:image" content="https://ethonzhu.github.io/assets/blogImg/iOS-RunTime-Detail.png">
+<meta name="twitter:title" content="Android 字节码打桩 - 无埋点 SDK 实现">
+<meta name="twitter:description" content="前言 本文将为您解析以下 Android 开发中无埋点相关知识: Android 无埋点实现方案分类 不同无埋点方案之间的利弊  无埋点的设计和实现关键技术 利用字节码插装 + AOP 实现 Android 无埋点 SDK …">
+<meta name="twitter:image" content="https://ethonzhu.github.io/assets/eventTracks/Android%20SDK/AndroidSDK_header.png">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
   
@@ -157,33 +157,33 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-13 - iOS RunTime - 无埋点 SDK 实现" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-14 - Android 字节码打桩 - 无埋点 SDK 实现" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      iOS RunTime - 无埋点 SDK 实现
+      Android 字节码打桩 - 无埋点 SDK 实现
     </h1>
   
 
         
-        <a href="/12/25/13 - iOS RunTime - 无埋点 SDK 实现/" class="archive-article-date">
-  	<time datetime="2019-12-25T02:33:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
+        <a href="/12/26/14 - Android 字节码打桩 - 无埋点 SDK 实现/" class="archive-article-date">
+  	<time datetime="2019-12-26T02:47:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/blogImg/iOS-RunTime-Detail.png" alt=""></p>
+        <p><img src="/assets/eventTracks/Android%20SDK/AndroidSDK_header.png" alt=""></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>本文将为您解析以下 iOS 开发无埋点 SDK 相关知识:<ul>
-<li>iOS RunTime 定义以及在开发中使用场景</li>
-<li>和传统编码有何异同、利弊 </li>
-<li>RunTime Error 调试和处理</li>
-<li>使用 RunTime 设计和实现一套自己的无埋点 SDK</li>
+<li>本文将为您解析以下 Android 开发中无埋点相关知识:<ul>
+<li>Android 无埋点实现方案分类</li>
+<li>不同无埋点方案之间的利弊 </li>
+<li>无埋点的设计和实现关键技术</li>
+<li>利用字节码插装 + AOP 实现 Android 无埋点 SDK</li>
 <li>…</li>
 </ul>
 </li>
@@ -231,7 +231,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">设计</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
@@ -287,7 +291,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/12/25/13 - iOS RunTime - 无埋点 SDK 实现/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/12/26/14 - Android 字节码打桩 - 无埋点 SDK 实现/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -301,18 +305,18 @@
   
 <nav id="article-nav">
   
-    <a href="/12/25/14 - Android 字节码打桩 - 无埋点 SDK 实现/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/12/26/15 - WeSocket - 可视化埋点 实现/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Android 字节码打桩 - 无埋点 SDK 实现
+          WeSocket - 可视化埋点 实现
         
       </div>
     </a>
   
   
-    <a href="/12/25/12 - 圈选 + 无埋点实现 真正意义上无痕埋点/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">圈选 + 无埋点实现 真正意义上无痕埋点</div>
+    <a href="/12/26/13 - iOS RunTime - 无埋点 SDK 实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS RunTime - 无埋点 SDK 实现</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ethonzhu.github.io">
-  <title>圈选 + 无埋点实现 真正意义上无痕埋点 | 一目星辰</title>
+  <title>WeSocket - 可视化埋点 实现 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 本文将为您解析以下无埋点实现相关知识: 无埋点的定义和作用 圈选 SDK 作用、以及实现 圈选 SDK 如何配合无埋点实现真正意义上的无痕埋点 …">
+  <meta name="description" content="前言 本文将为您解析以下可视化埋点相关知识 : 可视化埋点定义和作用 可视化埋点方案设计和关键技术 利用 WeScoket 实现可视化埋点 …">
 <meta name="keywords" content="前端,代码,设计">
 <meta property="og:type" content="article">
-<meta property="og:title" content="圈选 + 无埋点实现 真正意义上无痕埋点">
-<meta property="og:url" content="https://ethonzhu.github.io/12/25/12 - 圈选 + 无埋点实现 真正意义上无痕埋点/index.html">
+<meta property="og:title" content="WeSocket - 可视化埋点 实现">
+<meta property="og:url" content="https://ethonzhu.github.io/12/26/15 - WeSocket - 可视化埋点 实现/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="前言 本文将为您解析以下无埋点实现相关知识: 无埋点的定义和作用 圈选 SDK 作用、以及实现 圈选 SDK 如何配合无埋点实现真正意义上的无痕埋点 …">
+<meta property="og:description" content="前言 本文将为您解析以下可视化埋点相关知识 : 可视化埋点定义和作用 可视化埋点方案设计和关键技术 利用 WeScoket 实现可视化埋点 …">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/WeScoket/truely_Sdk_header.png">
-<meta property="og:updated_time" content="2019-12-26T07:43:17.538Z">
+<meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/WeScoket/WeScoket_header.png">
+<meta property="og:updated_time" content="2019-12-26T07:45:31.741Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="圈选 + 无埋点实现 真正意义上无痕埋点">
-<meta name="twitter:description" content="前言 本文将为您解析以下无埋点实现相关知识: 无埋点的定义和作用 圈选 SDK 作用、以及实现 圈选 SDK 如何配合无埋点实现真正意义上的无痕埋点 …">
-<meta name="twitter:image" content="https://ethonzhu.github.io/assets/eventTracks/WeScoket/truely_Sdk_header.png">
+<meta name="twitter:title" content="WeSocket - 可视化埋点 实现">
+<meta name="twitter:description" content="前言 本文将为您解析以下可视化埋点相关知识 : 可视化埋点定义和作用 可视化埋点方案设计和关键技术 利用 WeScoket 实现可视化埋点 …">
+<meta name="twitter:image" content="https://ethonzhu.github.io/assets/eventTracks/WeScoket/WeScoket_header.png">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
   
@@ -157,32 +157,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-12 - 圈选 + 无埋点实现 真正意义上无痕埋点" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-15 - WeSocket - 可视化埋点 实现" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      圈选 + 无埋点实现 真正意义上无痕埋点
+      WeSocket - 可视化埋点 实现
     </h1>
   
 
         
-        <a href="/12/25/12 - 圈选 + 无埋点实现 真正意义上无痕埋点/" class="archive-article-date">
-  	<time datetime="2019-12-25T02:23:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
+        <a href="/12/26/15 - WeSocket - 可视化埋点 实现/" class="archive-article-date">
+  	<time datetime="2019-12-26T03:08:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/eventTracks/WeScoket/truely_Sdk_header.png" alt=""></p>
+        <p><img src="/assets/eventTracks/WeScoket/WeScoket_header.png" alt=""></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>本文将为您解析以下无埋点实现相关知识:<ul>
-<li>无埋点的定义和作用</li>
-<li>圈选 SDK 作用、以及实现</li>
-<li>圈选 SDK 如何配合无埋点实现真正意义上的无痕埋点</li>
+<li>本文将为您解析以下可视化埋点相关知识 :<ul>
+<li>可视化埋点定义和作用</li>
+<li>可视化埋点方案设计和关键技术</li>
+<li>利用 WeScoket 实现可视化埋点</li>
 <li>…</li>
 </ul>
 </li>
@@ -286,7 +286,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/12/25/12 - 圈选 + 无埋点实现 真正意义上无痕埋点/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/12/26/15 - WeSocket - 可视化埋点 实现/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -300,18 +300,9 @@
   
 <nav id="article-nav">
   
-    <a href="/12/25/13 - iOS RunTime - 无埋点 SDK 实现/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          iOS RunTime - 无埋点 SDK 实现
-        
-      </div>
-    </a>
   
-  
-    <a href="/12/25/11 - 埋点方案漫谈/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">“埋点方案漫谈”</div>
+    <a href="/12/26/14 - Android 字节码打桩 - 无埋点 SDK 实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android 字节码打桩 - 无埋点 SDK 实现</div>
       <i class="icon-circle-right"></i>
     </a>
   

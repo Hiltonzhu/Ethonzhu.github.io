@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ethonzhu.github.io">
-  <title>“埋点方案漫谈” | 一目星辰</title>
+  <title>圈选 + 无埋点实现 真正意义上无痕埋点 | 一目星辰</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 本文将为您解析以下开发中埋点相关知识 : 埋点的定义、作用以及收集能力 现行市场上实现埋点方案分类  不同方案各自的利弊  不同方案具体设计、实现以及关键技术">
-<meta name="keywords" content="前端,代码,编程,设计">
+  <meta name="description" content="前言 本文将为您解析以下无埋点实现相关知识: 无埋点的定义和作用 圈选 SDK 作用、以及实现 圈选 SDK 如何配合无埋点实现真正意义上的无痕埋点 …">
+<meta name="keywords" content="前端,代码,设计">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“埋点方案漫谈”">
-<meta property="og:url" content="https://ethonzhu.github.io/12/25/11 - 埋点方案漫谈/index.html">
+<meta property="og:title" content="圈选 + 无埋点实现 真正意义上无痕埋点">
+<meta property="og:url" content="https://ethonzhu.github.io/12/26/12 - 圈选 + 无埋点实现 真正意义上无痕埋点/index.html">
 <meta property="og:site_name" content="一目星辰">
-<meta property="og:description" content="前言 本文将为您解析以下开发中埋点相关知识 : 埋点的定义、作用以及收集能力 现行市场上实现埋点方案分类  不同方案各自的利弊  不同方案具体设计、实现以及关键技术">
+<meta property="og:description" content="前言 本文将为您解析以下无埋点实现相关知识: 无埋点的定义和作用 圈选 SDK 作用、以及实现 圈选 SDK 如何配合无埋点实现真正意义上的无痕埋点 …">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/iOS%20runTime/track_title.png">
-<meta property="og:updated_time" content="2019-12-26T07:43:18.751Z">
+<meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/WeScoket/truely_Sdk_header.png">
+<meta property="og:updated_time" content="2019-12-26T07:45:17.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="“埋点方案漫谈”">
-<meta name="twitter:description" content="前言 本文将为您解析以下开发中埋点相关知识 : 埋点的定义、作用以及收集能力 现行市场上实现埋点方案分类  不同方案各自的利弊  不同方案具体设计、实现以及关键技术">
-<meta name="twitter:image" content="https://ethonzhu.github.io/assets/eventTracks/iOS%20runTime/track_title.png">
+<meta name="twitter:title" content="圈选 + 无埋点实现 真正意义上无痕埋点">
+<meta name="twitter:description" content="前言 本文将为您解析以下无埋点实现相关知识: 无埋点的定义和作用 圈选 SDK 作用、以及实现 圈选 SDK 如何配合无埋点实现真正意义上的无痕埋点 …">
+<meta name="twitter:image" content="https://ethonzhu.github.io/assets/eventTracks/WeScoket/truely_Sdk_header.png">
   
     <link rel="alternative" href="/atom.xml" title="一目星辰" type="application/atom+xml">
   
@@ -157,91 +157,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-11 - 埋点方案漫谈" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-12 - 圈选 + 无埋点实现 真正意义上无痕埋点" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      “埋点方案漫谈”
+      圈选 + 无埋点实现 真正意义上无痕埋点
     </h1>
   
 
         
-        <a href="/12/25/11 - 埋点方案漫谈/" class="archive-article-date">
-  	<time datetime="2019-12-25T01:43:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
+        <a href="/12/26/12 - 圈选 + 无埋点实现 真正意义上无痕埋点/" class="archive-article-date">
+  	<time datetime="2019-12-26T02:23:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/assets/eventTracks/iOS%20runTime/track_title.png" alt=""></p>
+        <p><img src="/assets/eventTracks/WeScoket/truely_Sdk_header.png" alt=""></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
-<li>本文将为您解析以下开发中埋点相关知识 :<ul>
-<li>埋点的定义、作用以及收集能力</li>
-<li>现行市场上实现埋点方案分类 </li>
-<li>不同方案各自的利弊 </li>
-<li>不同方案具体设计、实现以及关键技术 </li>
+<li>本文将为您解析以下无埋点实现相关知识:<ul>
+<li>无埋点的定义和作用</li>
+<li>圈选 SDK 作用、以及实现</li>
+<li>圈选 SDK 如何配合无埋点实现真正意义上的无痕埋点</li>
+<li>…</li>
 </ul>
 </li>
 </ul>
 <a id="more"></a>
-<h2 id="一、埋点的定义、作用以及收集能力"><a href="#一、埋点的定义、作用以及收集能力" class="headerlink" title="一、埋点的定义、作用以及收集能力"></a>一、埋点的定义、作用以及收集能力</h2><ul>
-<li>定义: 数据采集的一种方式 </li>
-<li>作用: 记录和收集终端用户的操作行为</li>
-<li>收集能力<ul>
-<li>事件: 冷启动、页面事件、用户行为、ScrollView 相关</li>
-<li>业务层: 基于事件、覆盖事件函数相关参数</li>
-</ul>
-</li>
-</ul>
-<h2 id="二、埋点方案分类"><a href="#二、埋点方案分类" class="headerlink" title="二、埋点方案分类"></a>二、埋点方案分类</h2><ul>
-<li>前端<ul>
-<li>Web、App、小程序\&lt;行为、直接数据相关><ul>
-<li>手动埋点</li>
-<li>无埋点</li>
-<li>可视化埋点</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>后端<ul>
-<li>服务端\&lt;流程数据></li>
-</ul>
-</li>
-<li>其他<ul>
-<li>路径 / 独立埋点</li>
-<li>显性 / 隐性埋点</li>
-<li>业务 / 监测埋点</li>
-</ul>
-</li>
-</ul>
-<h2 id="三、-不同埋点方案各自的利弊"><a href="#三、-不同埋点方案各自的利弊" class="headerlink" title="三、 不同埋点方案各自的利弊"></a>三、 不同埋点方案各自的利弊</h2><ul>
-<li>前端<ul>
-<li>手动</li>
-<li>无痕</li>
-<li>可视化 </li>
-</ul>
-</li>
-<li>后端<ul>
-<li>服务端</li>
-</ul>
-</li>
-</ul>
-<h2 id="四、不同方案具体设计、实现以及关键技术"><a href="#四、不同方案具体设计、实现以及关键技术" class="headerlink" title="四、不同方案具体设计、实现以及关键技术"></a>四、不同方案具体设计、实现以及关键技术</h2><ul>
-<li>前端<ul>
-<li>手动</li>
-<li>无痕</li>
-<li>可视化</li>
-</ul>
-</li>
-<li>后端<ul>
-<li>服务端</li>
-</ul>
-</li>
-</ul>
 
       
 
@@ -281,10 +227,6 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">代码</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -344,7 +286,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/12/25/11 - 埋点方案漫谈/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ethonzhu.github.io/12/26/12 - 圈选 + 无埋点实现 真正意义上无痕埋点/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -358,18 +300,18 @@
   
 <nav id="article-nav">
   
-    <a href="/12/25/12 - 圈选 + 无埋点实现 真正意义上无痕埋点/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/12/26/13 - iOS RunTime - 无埋点 SDK 实现/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          圈选 + 无埋点实现 真正意义上无痕埋点
+          iOS RunTime - 无埋点 SDK 实现
         
       </div>
     </a>
   
   
-    <a href="/09/10/10-React-Hot-Loader/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">React Hot Loader 详解</div>
+    <a href="/12/26/11 - 埋点方案漫谈/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">“埋点方案漫谈”</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -396,7 +338,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、埋点的定义、作用以及收集能力"><span class="toc-number">2.</span> <span class="toc-text">一、埋点的定义、作用以及收集能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、埋点方案分类"><span class="toc-number">3.</span> <span class="toc-text">二、埋点方案分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、-不同埋点方案各自的利弊"><span class="toc-number">4.</span> <span class="toc-text">三、 不同埋点方案各自的利弊</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、不同方案具体设计、实现以及关键技术"><span class="toc-number">5.</span> <span class="toc-text">四、不同方案具体设计、实现以及关键技术</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol>
                     </div>
                 </span>
             </div>
