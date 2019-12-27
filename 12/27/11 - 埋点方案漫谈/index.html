@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/iOS%20runTime/track_title.png">
 <meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/WeScoket/diff.png">
 <meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/WeScoket/ideaTree.png">
-<meta property="og:updated_time" content="2019-12-27T06:15:15.688Z">
+<meta property="og:updated_time" content="2019-12-27T06:26:50.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="“埋点方案漫谈”">
 <meta name="twitter:description" content="前言 本文将为您解析以下开发中埋点相关知识 : 埋点的定义、作用以及收集能力 现行市场上实现埋点方案分类  不同方案各自的利弊  不同方案具体设计、实现以及关键技术">
@@ -201,34 +201,31 @@
     3.1、 事件: 冷启动、页面事件、用户行为、界面滑动相关
     3.2、 业务层: 基于事件、覆盖事件函数相关参数
 </code></pre><h2 id="埋点方案分类"><a href="#埋点方案分类" class="headerlink" title="埋点方案分类"></a>埋点方案分类</h2><pre><code>1、 前端
-    1.1、 Web、App、小程序&lt;行为、直接数据相关&gt;
+    1.1、 Web、App、小程序: 行为、直接数据相关
         * 手动埋点
         * 无埋点
         * 可视化埋点
 
 2、 后端
-    2.1、 服务端&lt;流程、核心数据&gt;
+    2.1、 服务端: 流程、核心数据
 
 3、 其他
     3.1、 路径 / 独立埋点
     3.2、 显性 / 隐性埋点
     3.3、 业务 / 监测埋点
 </code></pre><h2 id="不同埋点方案各自的利弊"><a href="#不同埋点方案各自的利弊" class="headerlink" title="不同埋点方案各自的利弊"></a>不同埋点方案各自的利弊</h2><p><img src="/assets/eventTracks/WeScoket/diff.png" alt=""></p>
-<h2 id="不同方案具体设计、实现以及关键技术"><a href="#不同方案具体设计、实现以及关键技术" class="headerlink" title="不同方案具体设计、实现以及关键技术"></a>不同方案具体设计、实现以及关键技术</h2><pre><code>1、 前端
-    * 手动
-    * 无痕 &lt;AOP&gt;
-        1.1、iOS
-            * 运行时 + 圈选 SDK
-        1.2、Android
-            * AOP: 字节码插装
-            * ASM : 动态改变类或增强既有类
-            * Javassist、AST
-    * 可视化
-        1.1、WebSocket + 圈选
+<h2 id="不同方案具体设计、实现以及关键技术"><a href="#不同方案具体设计、实现以及关键技术" class="headerlink" title="不同方案具体设计、实现以及关键技术"></a>不同方案具体设计、实现以及关键技术</h2><pre><code>1、 手动 : SDK 植入
 
-2、 后端
-    * 服务端
-        1、
+2、 无痕: AOP
+    2.1、iOS
+        * 运行时 + 圈选 SDK
+    2.2、Android
+        * AOP: 字节码插装
+        * ASM : 动态改变类或增强既有类
+        * Javassist、AST
+
+3、 可视化
+    * WebSocket + 配置平台
 </code></pre><p><img src="/assets/eventTracks/WeScoket/ideaTree.png" alt=""></p>
 
       
@@ -528,10 +525,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
@@ -553,6 +546,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">用户体验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
