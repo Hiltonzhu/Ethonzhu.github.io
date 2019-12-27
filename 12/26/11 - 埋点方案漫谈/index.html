@@ -17,7 +17,7 @@
 <meta property="og:description" content="前言 本文将为您解析以下开发中埋点相关知识 : 埋点的定义、作用以及收集能力 现行市场上实现埋点方案分类  不同方案各自的利弊  不同方案具体设计、实现以及关键技术">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/iOS%20runTime/track_title.png">
-<meta property="og:updated_time" content="2019-12-27T02:32:37.046Z">
+<meta property="og:updated_time" content="2019-12-27T02:40:31.546Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="“埋点方案漫谈”">
 <meta name="twitter:description" content="前言 本文将为您解析以下开发中埋点相关知识 : 埋点的定义、作用以及收集能力 现行市场上实现埋点方案分类  不同方案各自的利弊  不同方案具体设计、实现以及关键技术">
@@ -192,7 +192,7 @@
 
 2、 作用: 数据统计、分析、挖掘、衡量产品指标
     2.1、 驱动决策: ABtest、漏斗优化、bug修复、精准营销、留存/活跃预警、渠道来源推、投放效果
-    2.2、 驱动产品智能: 智能推荐(千人千面)、场景化提示(私人助理)等
+    2.2、 驱动产品智能: 智能推荐/千人千面、场景化提示/私人助理等
     2.3、 驱动安全: 风险识别
 
 3、  收集能力
@@ -205,12 +205,12 @@
         * 可视化埋点
 
 2、 后端
-    *  服务端&lt;流程数据&gt;
+    2.1、 服务端&lt;流程数据&gt;
 
 3、 其他
-    * 路径 / 独立埋点
-    * 显性 / 隐性埋点
-    * 业务 / 监测埋点
+    3.1、 路径 / 独立埋点
+    3.2、 显性 / 隐性埋点
+    3.3、 业务 / 监测埋点
 </code></pre><h2 id="三、-不同埋点方案各自的利弊"><a href="#三、-不同埋点方案各自的利弊" class="headerlink" title="三、 不同埋点方案各自的利弊"></a>三、 不同埋点方案各自的利弊</h2><pre><code>1、 前端
     * 手动
     * 无痕
@@ -220,11 +220,17 @@
     * 服务端
 </code></pre><h2 id="四、不同方案具体设计、实现以及关键技术"><a href="#四、不同方案具体设计、实现以及关键技术" class="headerlink" title="四、不同方案具体设计、实现以及关键技术"></a>四、不同方案具体设计、实现以及关键技术</h2><pre><code>1、 前端
     * 手动
-    * 无痕
+    * 无痕 &lt;AOP&gt;
+        1.1、iOS
+            * 运行时 + 圈选 SDK
+        1.2、Android
+            * 字节码插装
     * 可视化
+        1.1、WebSocket + 圈选
 
 2、 后端
     * 服务端
+        1、
 </code></pre>
       
 
@@ -531,10 +537,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开源</a>
               </li>
              
@@ -544,6 +546,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">混合开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
