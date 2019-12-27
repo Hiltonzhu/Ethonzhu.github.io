@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/iOS%20runTime/track_title.png">
 <meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/WeScoket/diff.png">
 <meta property="og:image" content="https://ethonzhu.github.io/assets/eventTracks/WeScoket/ideaTree.png">
-<meta property="og:updated_time" content="2019-12-27T06:26:50.763Z">
+<meta property="og:updated_time" content="2019-12-27T06:56:17.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="“埋点方案漫谈”">
 <meta name="twitter:description" content="前言 本文将为您解析以下开发中埋点相关知识 : 埋点的定义、作用以及收集能力 现行市场上实现埋点方案分类  不同方案各自的利弊  不同方案具体设计、实现以及关键技术">
@@ -218,11 +218,16 @@
 
 2、 无痕: AOP
     2.1、iOS
-        * 运行时 + 圈选 SDK
+        * 运行时 Hook
     2.2、Android
-        * AOP: 字节码插装
-        * ASM : 动态改变类或增强既有类
-        * Javassist、AST
+        * 静态代理: Gradle Plugin 编译期间插入/修改代码
+            * AspectJ: 字节码插装
+            * ASM : 动态改变类或增强既有类
+            * Javassist、AST
+        * 动态代理: 运行时
+            * View.OnClickListener
+            * Window.Callback
+            * View.AccessibilityDelegate
 
 3、 可视化
     * WebSocket + 配置平台
